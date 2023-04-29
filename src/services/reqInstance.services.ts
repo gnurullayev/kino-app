@@ -1,9 +1,9 @@
-import axios from "axios";
+import axios,{ InternalAxiosRequestConfig } from "axios";
 import { getItem } from "../helpers/persistanceStorage";
 
 axios.defaults.baseURL = ""
 
-axios.interceptors.request.use(function (config):any {
+axios.interceptors.request.use(function (config:InternalAxiosRequestConfig):InternalAxiosRequestConfig {
     const token:string | null = getItem("token")
 
     const authorization:string = token ? `Bearer ${token}` : ""
