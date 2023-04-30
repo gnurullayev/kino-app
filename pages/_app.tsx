@@ -1,13 +1,30 @@
 import { Layout } from "@/src/components";
-import "@/styles/globals.scss";
 import type { AppProps } from "next/app";
+import { ThemeProvider } from "@mui/material";
+import CssBaseline from "@mui/material/CssBaseline";
+import { CacheProvider, EmotionCache } from "@emotion/react";
+import theme from "@/src/helpers/theme";
+import createEmotionCache from "@/src/helpers/createEmotionCache";
 
-export default function App({ Component, pageProps }: AppProps) {
+import "@/styles/globals.scss";
+import "@/styles/swiper.scss";
+//Client-side cache, shared for the whole session of the user in the browser.
+const clientSideEmotionCache = createEmotionCache();
+
+export interface MyAppProps extends AppProps {
+  emotionCache?: EmotionCache;
+}
+
+export default function App(props: MyAppProps) {
+  const { Component, pageProps, emotionCache = clientSideEmotionCache } = props;
   return (
-    <>
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
-    </>
+    <CacheProvider value={emotionCache}>
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      </ThemeProvider>
+    </CacheProvider>
   );
 }
