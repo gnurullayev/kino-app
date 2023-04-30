@@ -35,6 +35,28 @@ const Nav = () => {
             pagination={{
               clickable: true,
             }}
+            breakpoints={{
+              0: {
+                slidesPerView: 2,
+                spaceBetween: 20,
+              },
+              600: {
+                slidesPerView: 3,
+                spaceBetween: 20,
+              },
+              768: {
+                slidesPerView: 4,
+                spaceBetween: 20,
+              },
+              900: {
+                slidesPerView: 5,
+                spaceBetween: 20,
+              },
+              1050: {
+                slidesPerView: 6,
+                spaceBetween: 20,
+              },
+            }}
             className="mySwiper navList"
           >
             {navData.map((item) => (

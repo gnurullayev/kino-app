@@ -22,6 +22,8 @@ body {
 .header {
   position: sticky;
   top: 0;
+  z-index: 999;
+  background-color: #13161d !important;
 
   .MuiPaper-root {
     background-color: #272727 !important;
@@ -77,4 +79,52 @@ body {
   font-size: 1rem;
   color: #9b9dab;
   text-decoration: none;
+}
+
+.home_hero_carousel {
+  position: relative;
+
+  &__btn {
+    position: absolute;
+    top: 50%;
+    z-index: 998;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: 50%;
+    background-color: rgba(37, 37, 37, 0.8) !important;
+    color: #fff !important;
+    font-size: 25px;
+    border: 0;
+    transition: all 0.3s linear;
+    cursor: pointer;
+  }
+
+  &__btn:hover {
+    background-color: #383838 !important;
+    transition: all 0.3s linear;
+  }
+
+  &__btn_left {
+    left: 15px;
+  }
+
+  &__btn_right {
+    right: 15px;
+  }
+}
+
+.MuiPaper-root {
+  background-color: #1e1e1e !important;
+  color: #fff !important;
+}
+
+.MuiTypography-body2 {
+  color: #fff;
+}
+
+.MuiCardContent-root {
+  padding: 10px !important;
 }

@@ -5,16 +5,17 @@ import Navbar from "./Navbar/Navbar";
 import { Sidebar } from "./Sidebar/Sidebar";
 import HomeHero from "./HomeHero/HomeHero";
 import Nav from "./Nav/Nav";
-
-
-
+import HomeHeroCarousel from "./HomeHeroCarusel/HomeHeroCarusel";
+import CategorySection from "./CategorySection/CategorySection";
 
 export {
-    Layout,
-    Header,
-    Footer,
-    Navbar,
-    Sidebar,
-    HomeHero,
-    Nav
-}
+  Layout,
+  Header,
+  Footer,
+  Navbar,
+  Sidebar,
+  HomeHero,
+  Nav,
+  HomeHeroCarousel,
+  CategorySection,
+};

@@ -1,11 +1,17 @@
-import { HomeHero } from "@/src/components";
-import { Box, Container } from "@mui/material";
+import { CategorySection, HomeHero } from "@/src/components";
+import { heroData } from "@/src/components/HomeHeroCarusel/data";
+import { Box } from "@mui/material";
 
 export default function Home() {
   return (
     <>
       <Box className="home" sx={{ p: "0px 0" }}>
         <HomeHero />
+        <CategorySection
+          title="Seriallar"
+          subtitle="Eng Sara seriallar"
+          list={heroData}
+        />
       </Box>
     </>
   );
