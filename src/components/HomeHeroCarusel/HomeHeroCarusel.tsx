@@ -18,6 +18,7 @@ const HomeHeroCarousel = () => {
   return (
     <Box className="home_hero_carousel" sx={{ p: "20px 0" }}>
       <Swiper
+        spaceBetween={40}
         pagination={{
           clickable: true,
         }}
@@ -29,23 +30,15 @@ const HomeHeroCarousel = () => {
         breakpoints={{
           0: {
             slidesPerView: 1,
-            spaceBetween: 20,
           },
           600: {
             slidesPerView: 2,
-            spaceBetween: 20,
           },
           950: {
             slidesPerView: 3,
-            spaceBetween: 20,
           },
           1250: {
-            slidesPerView: 4,
-            spaceBetween: 20,
-          },
-          1550: {
-            slidesPerView: 5,
-            spaceBetween: 20,
+            slidesPerView: 3,
           },
         }}
         className="mySwiper navList"

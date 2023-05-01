@@ -7,14 +7,14 @@ import FilmCard from "../FilmCard/FilmCard";
 
 const CategorySection = ({ title, subtitle, list }: ICategorySection) => {
   return (
-    <Box className="section" component="section" sx={{ p: "30px 0" }}>
+    <Box className="section" component="section" sx={{ pb: "30px" }}>
       <Box className="container">
         <Box className="section-inner">
           <SectionHeader title={title} subtitle={subtitle} />
           <Box sx={{ flexGrow: 1 }}>
             <Grid container spacing={3}>
               {list.map((item) => (
-                <Grid key={item.id} xs={3}>
+                <Grid key={item.id} xs={1} sm={3}>
                   <FilmCard {...item} />
                 </Grid>
               ))}

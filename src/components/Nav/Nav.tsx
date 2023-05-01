@@ -49,11 +49,11 @@ const Nav = () => {
                 spaceBetween: 20,
               },
               900: {
-                slidesPerView: 5,
+                slidesPerView: 6,
                 spaceBetween: 20,
               },
               1050: {
-                slidesPerView: 6,
+                slidesPerView: 7,
                 spaceBetween: 20,
               },
             }}

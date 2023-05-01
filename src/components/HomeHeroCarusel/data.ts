@@ -10,7 +10,13 @@ import {
   HomeImage6,
   HomeImage7,
   HomeImage8,
-  HomeImage9,
+  HomeImage17,
+  HomeImage19,
+  HomeImage22,
+  HomeImage25,
+  HomeImage26,
+  HomeImage27,
+  HomeImage28,
 } from "@/src/assets/homeImages";
 import { IHeroData } from "./homeHeroCarousel.props";
 
@@ -84,7 +90,7 @@ export const heroData: IHeroData[] = [
     title: "Grim",
     slug: "grim",
     category: "komedya",
-    image: HomeImage9,
+    image: HomeImage28,
     description: "Grim kino filmi 2017",
   },
   {
@@ -92,7 +98,7 @@ export const heroData: IHeroData[] = [
     title: "Bo'rilar to'dasi",
     slug: "bo'rilar-to'dasi",
     category: "komedya",
-    image: HomeImage10,
+    image: HomeImage27,
     description: "Bo'rilar to'dasi kino filmi 2017",
   },
   {
@@ -100,7 +106,7 @@ export const heroData: IHeroData[] = [
     title: "Birinchhi jodugar",
     slug: "Birinchhi jodugar",
     category: "komedya",
-    image: HomeImage11,
+    image: HomeImage26,
     description: "Birinchhi jodugar kino filmi 2017",
   },
   {
@@ -108,7 +114,7 @@ export const heroData: IHeroData[] = [
     title: "Shazam 2",
     slug: "shazam-2",
     category: "fantastik",
-    image: HomeImage12,
+    image: HomeImage25,
     description: "Shazam 2 kino filmi 2017",
   },
 ];
