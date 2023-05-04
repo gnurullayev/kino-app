@@ -13,6 +13,7 @@ import { Navigation } from "swiper";
 
 import { heroData } from "./data";
 import FilmCard from "../FilmCard/FilmCard";
+import HomeSliderCard from "../HomeSliderCard/HomeSliderCard";
 
 const HomeHeroCarousel = () => {
   return (
@@ -30,9 +31,11 @@ const HomeHeroCarousel = () => {
         breakpoints={{
           0: {
             slidesPerView: 1,
+            spaceBetween: 20,
           },
-          600: {
+          550: {
             slidesPerView: 2,
+            spaceBetween: 20,
           },
           950: {
             slidesPerView: 3,
@@ -41,11 +44,16 @@ const HomeHeroCarousel = () => {
             slidesPerView: 3,
           },
         }}
-        className="mySwiper navList"
+        className="mySwiper home-hero-carousel"
       >
         {heroData.map((item) => (
           <SwiperSlide key={item.id} className="nav-item">
-            <FilmCard {...item} />
+            <HomeSliderCard
+              name={item.title}
+              image={item.image}
+              slug={item.slug}
+              id={item.id}
+            />
           </SwiperSlide>
         ))}
       </Swiper>

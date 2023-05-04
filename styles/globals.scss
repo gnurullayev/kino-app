@@ -116,9 +116,60 @@ body {
   }
 }
 
-.MuiPaper-root {
+.film-card {
   background-color: #1e1e1e !important;
   color: #fff !important;
+  transition: all 0.3s ease;
+
+  .MuiTypography-root {
+    font-size: 17px !important;
+    transition: all 0.3s ease;
+  }
+
+  .MuiTypography-body2 {
+    font-size: 13px !important;
+    color: #9b9dab !important;
+  }
+  cursor: pointer;
+}
+
+.film-card:hover {
+  background-color: rgba(38, 125, 44, 0.1) !important;
+  transition: all 0.3s ease;
+
+  .MuiTypography-root {
+    font-size: 17px !important;
+    color: #267d2c !important;
+  }
+
+  .MuiTypography-body2 {
+    font-size: 13px !important;
+    color: #9b9dab !important;
+  }
+}
+
+.home-slider-card {
+  text-align: left;
+  background-color: transparent !important;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  .MuiTypography-root {
+    font-size: 16px !important;
+    font-weight: 500;
+    padding: 10px 8px 0px 8px !important;
+    color: #fff;
+    transition: all 0.3s ease;
+  }
+}
+
+.home-slider-card:hover {
+  background-color: rgba(38, 125, 44, 0.1) !important;
+  transition: all 0.3s ease;
+
+  .MuiTypography-root {
+    color: #267d2c !important;
+  }
 }
 
 .MuiTypography-body2 {
@@ -126,5 +177,16 @@ body {
 }
 
 .MuiCardContent-root {
-  padding: 10px !important;
+  padding: 0 8px 8px 8px !important;
+}
+
+.section-header {
+  padding-top: 0 !important;
+  .section-title {
+    font-size: 27px !important;
+  }
+
+  .MuiTypography-body1 {
+    font-size: 15px;
+  }
 }

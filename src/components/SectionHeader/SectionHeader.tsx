@@ -12,6 +12,7 @@ const SectionHeader = ({ title, subtitle }: ISectionHeader) => {
         pt: "10px",
         pb: "20px",
       }}
+      className="section-header"
     >
       <Box>
         <Typography component="h2" className="section-title">
@@ -21,7 +22,9 @@ const SectionHeader = ({ title, subtitle }: ISectionHeader) => {
           {subtitle}
         </Typography>
       </Box>
-      <Button>Barchasi</Button>
+      <Button variant="outlined" color={"success"}>
+        Barchasi
+      </Button>
     </Box>
   );
 };

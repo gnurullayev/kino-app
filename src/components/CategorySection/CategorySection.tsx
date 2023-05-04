@@ -12,9 +12,9 @@ const CategorySection = ({ title, subtitle, list }: ICategorySection) => {
         <Box className="section-inner">
           <SectionHeader title={title} subtitle={subtitle} />
           <Box sx={{ flexGrow: 1 }}>
-            <Grid container spacing={3}>
+            <Grid container spacing={3} justifyContent={"center"}>
               {list.map((item) => (
-                <Grid key={item.id} xs={1} sm={3}>
+                <Grid key={item.id} xs={12} sm={3}>
                   <FilmCard {...item} />
                 </Grid>
               ))}

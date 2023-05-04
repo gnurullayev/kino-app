@@ -7,6 +7,7 @@ import HomeHero from "./HomeHero/HomeHero";
 import Nav from "./Nav/Nav";
 import HomeHeroCarousel from "./HomeHeroCarusel/HomeHeroCarusel";
 import CategorySection from "./CategorySection/CategorySection";
+import HomeSliderCard from "./HomeSliderCard/HomeSliderCard";
 
 export {
   Layout,
@@ -18,4 +19,5 @@ export {
   Nav,
   HomeHeroCarousel,
   CategorySection,
+  HomeSliderCard,
 };
