@@ -1,0 +1,31 @@
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+}
+
+.nav_link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 0;
+  background: #272727;
+  border-radius: 8px;
+  transition: all 0.3s linear;
+}
+
+.nav_link:hover {
+  background-color: #105e5e;
+  transition: all 0.3s linear;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
