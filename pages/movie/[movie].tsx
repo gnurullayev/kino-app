@@ -1,4 +1,4 @@
-import { Box, Button, Typography } from "@mui/material";
+import { Box } from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2";
 import { VideoDetailLeft, VideoDetailCardList } from "src/components";
 
@@ -13,10 +13,10 @@ const Movie = () => {
           justifyContent={"space-between"}
           sx={{ border: "1px solid red" }}
         >
-          <Grid xs={12} lg={7}>
+          <Grid xs={12} lg={8}>
             <VideoDetailLeft />
           </Grid>
-          <Grid xs={12} lg={5}>
+          <Grid xs={12} lg={4}>
             <Box className="movie-inner__end">
               <VideoDetailCardList />
             </Box>
