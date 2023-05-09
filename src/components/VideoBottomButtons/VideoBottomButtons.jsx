@@ -10,15 +10,18 @@ const VideoBottomButtons = () => {
     <Box
       className="movie__video_btn--group"
       sx={{
-        display: "flex",
+        display: "grid",
+        gridTemplateColumns: { xs: "1fr", sm: "340px 200px" },
         justifyContent: "space-between",
-        alignItems: "center",
+        alignItems: { xs: "flex-start", sm: "center" },
         py: "8px",
+        gap: "10px",
       }}
     >
       <Box
         sx={{
-          display: "flex",
+          display: "grid",
+          gridTemplateColumns: "repeat(2, 1fr)",
           alignItems: "center",
           gap: "10px",
         }}
@@ -32,8 +35,13 @@ const VideoBottomButtons = () => {
             gap: "5px",
           }}
         >
-          <PlayCircleIcon />
-          <Typography component={"span"}>Treyler</Typography>
+          <PlayCircleIcon sx={{ fontSize: { xs: "18px", sm: "20px" } }} />
+          <Typography
+            component={"span"}
+            sx={{ fontSize: { xs: "13px", sm: "14px" } }}
+          >
+            Treyler
+          </Typography>
         </Button>
 
         <Button
@@ -45,14 +53,20 @@ const VideoBottomButtons = () => {
             gap: "5px",
           }}
         >
-          <DownloadIcon />
-          <Typography component={"span"}>Yuklab olish</Typography>
+          <DownloadIcon sx={{ fontSize: { xs: "18px", sm: "20px" } }} />
+          <Typography
+            component={"span"}
+            sx={{ fontSize: { xs: "13px", sm: "14px" } }}
+          >
+            Yuklab olish
+          </Typography>
         </Button>
       </Box>
 
       <Box
         sx={{
-          display: "flex",
+          display: "grid",
+          gridTemplateColumns: "repeat(2, 1fr)",
           alignItems: "center",
           gap: "10px",
         }}
@@ -64,10 +78,16 @@ const VideoBottomButtons = () => {
             display: "flex",
             alignItems: "center",
             gap: "5px",
+            width: "100%",
           }}
         >
-          <ThumbUpIcon />
-          <Typography component={"span"}>50</Typography>
+          <ThumbUpIcon sx={{ fontSize: { xs: "18px", sm: "20px" } }} />
+          <Typography
+            component={"span"}
+            sx={{ fontSize: { xs: "13px", sm: "14px" } }}
+          >
+            50
+          </Typography>
         </Button>
 
         <Button
@@ -77,10 +97,16 @@ const VideoBottomButtons = () => {
             display: "flex",
             alignItems: "center",
             gap: "5px",
+            width: "100%",
           }}
         >
-          <ThumbDownIcon />
-          <Typography component={"span"}>2</Typography>
+          <ThumbDownIcon sx={{ fontSize: { xs: "18px", sm: "20px" } }} />
+          <Typography
+            component={"span"}
+            sx={{ fontSize: { xs: "13px", sm: "14px" } }}
+          >
+            2
+          </Typography>
         </Button>
       </Box>
     </Box>

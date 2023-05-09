@@ -1,6 +1,15 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+}
+
 body {
   background-color: #13161d !important;
   color: #f6f6f6 !important;
+  // color: rgba(12, 13, 12, 0.5);
+  // object-fit: contain;
 }
 
 ::-webkit-scrollbar {

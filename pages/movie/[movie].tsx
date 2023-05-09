@@ -1,6 +1,6 @@
 import { Box, Button, Typography } from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2";
-import { Video, VideoBottom } from "src/components";
+import { VideoDetailLeft, VideoDetailCardList } from "src/components";
 
 const Movie = () => {
   return (
@@ -14,18 +14,12 @@ const Movie = () => {
           sx={{ border: "1px solid red" }}
         >
           <Grid xs={12} lg={7}>
-            <Box className="movie-inner__start">
-              <Box
-                className="move__video"
-                sx={{ height: "400px", width: "100%" }}
-              >
-                <Video />
-              </Box>
-              <VideoBottom />
-            </Box>
+            <VideoDetailLeft />
           </Grid>
-          <Grid xs={12} lg={4}>
-            <Box className="movie-inner__end"></Box>
+          <Grid xs={12} lg={5}>
+            <Box className="movie-inner__end">
+              <VideoDetailCardList />
+            </Box>
           </Grid>
         </Grid>
       </Box>
