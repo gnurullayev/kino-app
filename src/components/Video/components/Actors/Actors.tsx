@@ -8,7 +8,12 @@ const Actors = () => {
   return (
     <Box
       className={style.actors}
-      sx={{ p: "20px 15px", backgroundColor: "#1E2029", borderRadius: "10px" }}
+      sx={{
+        p: "20px 15px",
+        mb: "20px",
+        backgroundColor: "#1E2029",
+        borderRadius: "10px",
+      }}
     >
       <ActorsHeader />
       <ActorsList />

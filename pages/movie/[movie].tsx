@@ -11,7 +11,6 @@ const Movie = () => {
           spacing={3}
           className="movie-inner"
           justifyContent={"space-between"}
-          sx={{ border: "1px solid red" }}
         >
           <Grid xs={12} lg={8}>
             <VideoDetailLeft />

@@ -26,7 +26,7 @@ const ActorsListItem = ({ name, image }: ActorsListItemProps) => {
         className={style.actors_list_item__title}
         sx={{ p: "8px 10px" }}
       >
-        Jamie Bamber
+        {name}
       </Typography>
     </Box>
   );
