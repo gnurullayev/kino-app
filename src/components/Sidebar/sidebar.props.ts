@@ -1,5 +1,5 @@
 export interface ISidebarData {
-    label: string,
-    id:number,
-    path?: string,
+  label: string;
+  id: number;
+  path: string;
 }

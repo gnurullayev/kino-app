@@ -11,6 +11,7 @@ import HomeSliderCard from "./HomeSliderCard/HomeSliderCard";
 import Video from "./Video/Video";
 import VideoBottomButtons from "./VideoBottomButtons/VideoBottomButtons";
 import VideoBottom from "./VideoBottom/VideoBottom";
+import { VideoDetailCardList, VideoDetailLeft } from "./Video/components";
 
 export {
   Layout,
@@ -26,4 +27,6 @@ export {
   Video,
   VideoBottomButtons,
   VideoBottom,
+  VideoDetailLeft,
+  VideoDetailCardList,
 };
