@@ -14,8 +14,10 @@ const CategorySection = ({ title, subtitle, list }: ICategorySection) => {
           <Box sx={{ flexGrow: 1 }}>
             <Grid container spacing={3} justifyContent={"center"}>
               {list.map((item) => (
-                <Grid key={item.id} xs={12} sm={3}>
-                  <FilmCard {...item} />
+                <Grid key={item.id} xs={12} sm={4} md={3}>
+                  <Box sx={{ maxWidth: "350px", margin: "0 auto" }}>
+                    <FilmCard {...item} />
+                  </Box>
                 </Grid>
               ))}
             </Grid>

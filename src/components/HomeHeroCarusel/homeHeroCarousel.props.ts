@@ -7,4 +7,5 @@ export interface IHeroData {
   image: StaticImageData;
   category: string;
   description: string;
+  year: string;
 }

@@ -205,3 +205,19 @@ body {
   height: 400px;
   object-fit: cover;
 }
+
+.MuiPaginationItem-root {
+  border: 1px solid #1e2029 !important;
+  color: #828491 !important;
+  svg path {
+    fill: #828491;
+  }
+}
+
+.Mui-selected {
+  background-color: #1e2029 !important;
+  color: #04897e !important;
+  svg path {
+    fill: #04897e;
+  }
+}

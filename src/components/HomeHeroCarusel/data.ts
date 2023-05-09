@@ -28,6 +28,7 @@ export const heroData: IHeroData[] = [
     category: "komedya",
     image: HomeImage1,
     description: "Sargordan zamin 2017",
+    year: "2017",
   },
   {
     id: 2,
@@ -36,6 +37,7 @@ export const heroData: IHeroData[] = [
     category: "drama",
     image: HomeImage2,
     description: "Riverdeyl kino filmi 2017",
+    year: "2017",
   },
   {
     id: 3,
@@ -44,6 +46,7 @@ export const heroData: IHeroData[] = [
     category: "komedya",
     image: HomeImage3,
     description: "Qora minora kino filmi 2017",
+    year: "2017",
   },
   {
     id: 4,
@@ -52,6 +55,7 @@ export const heroData: IHeroData[] = [
     category: "komedya",
     image: HomeImage4,
     description: "Chumoli odam kino filmi 2017",
+    year: "2017",
   },
   {
     id: 5,
@@ -60,6 +64,7 @@ export const heroData: IHeroData[] = [
     category: "komedya",
     image: HomeImage5,
     description: "Riverdeyl kino filmi 2017",
+    year: "2017",
   },
   {
     id: 6,
@@ -68,6 +73,7 @@ export const heroData: IHeroData[] = [
     category: "komedya",
     image: HomeImage6,
     description: "65 million yil aval kino filmi 2017",
+    year: "2017",
   },
   {
     id: 7,
@@ -76,6 +82,7 @@ export const heroData: IHeroData[] = [
     category: "komedya",
     image: HomeImage7,
     description: "Vampirlar kundaligi kino filmi 2017",
+    year: "2017",
   },
   {
     id: 8,
@@ -84,6 +91,7 @@ export const heroData: IHeroData[] = [
     category: "komedya",
     image: HomeImage8,
     description: "Vampirlar kundaligi kino filmi 2017",
+    year: "2017",
   },
   {
     id: 9,
@@ -92,6 +100,7 @@ export const heroData: IHeroData[] = [
     category: "komedya",
     image: HomeImage28,
     description: "Grim kino filmi 2017",
+    year: "2017",
   },
   {
     id: 10,
@@ -100,6 +109,7 @@ export const heroData: IHeroData[] = [
     category: "komedya",
     image: HomeImage27,
     description: "Bo'rilar to'dasi kino filmi 2017",
+    year: "2017",
   },
   {
     id: 11,
@@ -108,6 +118,7 @@ export const heroData: IHeroData[] = [
     category: "komedya",
     image: HomeImage26,
     description: "Birinchhi jodugar kino filmi 2017",
+    year: "2017",
   },
   {
     id: 12,
@@ -116,5 +127,6 @@ export const heroData: IHeroData[] = [
     category: "fantastik",
     image: HomeImage25,
     description: "Shazam 2 kino filmi 2017",
+    year: "2017",
   },
 ];
