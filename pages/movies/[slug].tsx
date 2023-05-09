@@ -1,0 +1,24 @@
+import React from "react";
+import { Box } from "@mui/material";
+import { MoviesHead, MoviesList, PaginationComponent } from "@/src/components";
+
+const Movies = () => {
+  return (
+    <Box className="movies" component="main">
+      <Box component="section" className="movies_hero">
+        <Box className="movies_hero__container container">
+          <Box className="movies_hero__inner">
+            <MoviesHead
+              title="Tarjima kinolar"
+              pageUrlLabel="translation-film"
+            />
+            <MoviesList />
+            <PaginationComponent />
+          </Box>
+        </Box>
+      </Box>
+    </Box>
+  );
+};
+
+export default Movies;

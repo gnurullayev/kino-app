@@ -22,7 +22,7 @@ interface ISidebar {
 const SidebarData: ISidebarData[] = [
   { label: "Bosh sahifa", id: 1, path: "/" },
   { label: "Movie", id: 2, path: "/movie/1" },
-  { label: "Serialar", id: 3, path: "/serialar" },
+  { label: "Movies", id: 3, path: "/movies/1" },
   { label: "Multfilimlar", id: 4, path: "/multfilm" },
   { label: "Consertlar", id: 5, path: "/konsert" },
 ];

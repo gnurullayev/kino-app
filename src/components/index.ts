@@ -16,6 +16,10 @@ import {
   VideoDetailLeft,
   VideoInfo,
 } from "./Video/components";
+import BreadcrumbsComponent from "./Breadcrumbs/Breadcrumbs";
+import MoviesList from "./MoviesList/MoviesList";
+import MoviesHead from "./MoviesHead/MoviesHead";
+import PaginationComponent from "./Pagination/Pagination";
 
 export {
   Layout,
@@ -34,4 +38,8 @@ export {
   VideoDetailLeft,
   VideoDetailCardList,
   VideoInfo,
+  BreadcrumbsComponent,
+  MoviesList,
+  MoviesHead,
+  PaginationComponent,
 };
