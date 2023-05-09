@@ -8,6 +8,9 @@ import Nav from "./Nav/Nav";
 import HomeHeroCarousel from "./HomeHeroCarusel/HomeHeroCarusel";
 import CategorySection from "./CategorySection/CategorySection";
 import HomeSliderCard from "./HomeSliderCard/HomeSliderCard";
+import Video from "./Video/Video";
+import VideoBottomButtons from "./VideoBottomButtons/VideoBottomButtons";
+import VideoBottom from "./VideoBottom/VideoBottom";
 
 export {
   Layout,
@@ -20,4 +23,7 @@ export {
   HomeHeroCarousel,
   CategorySection,
   HomeSliderCard,
+  Video,
+  VideoBottomButtons,
+  VideoBottom,
 };
