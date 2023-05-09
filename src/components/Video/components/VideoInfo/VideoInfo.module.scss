@@ -1,0 +1,20 @@
+.video_info {
+  position: relative;
+  padding: 20px 15px;
+  margin-bottom: 10px;
+  background-color: #1e2029;
+  border-radius: 0px;
+  overflow: hidden;
+  max-height: 363px;
+  transition: maxHeight 0.3s ease;
+}
+
+.active {
+  max-height: 100% !important;
+}
+
+@media (max-width: "460px") {
+  .video_info {
+    max-height: 610px;
+  }
+}
