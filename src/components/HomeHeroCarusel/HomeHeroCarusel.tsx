@@ -12,7 +12,6 @@ import "swiper/css/pagination";
 import { Navigation } from "swiper";
 
 import { heroData } from "./data";
-import FilmCard from "../FilmCard/FilmCard";
 import HomeSliderCard from "../HomeSliderCard/HomeSliderCard";
 
 const HomeHeroCarousel = () => {

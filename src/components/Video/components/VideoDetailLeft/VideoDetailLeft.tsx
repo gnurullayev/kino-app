@@ -1,7 +1,7 @@
 import { Box } from "@mui/material";
 import React from "react";
-import Video from "../../Video";
-import VideoBottom from "@/src/components/VideoBottom/VideoBottom";
+import { Actors } from "../";
+import { VideoBottom, Video } from "@/src/components";
 
 const VideoDetailLeft = () => {
   return (
@@ -10,6 +10,7 @@ const VideoDetailLeft = () => {
         <Video />
       </Box>
       <VideoBottom />
+      <Actors />
     </Box>
   );
 };

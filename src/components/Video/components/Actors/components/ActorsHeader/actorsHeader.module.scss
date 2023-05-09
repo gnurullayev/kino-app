@@ -1,0 +1,15 @@
+.actors__header {
+  margin-bottom: 20px;
+  &__control_btn {
+    transition: all 0.3s ease !important;
+  }
+
+  &__control_btn:hover {
+    background-color: rgba(224, 224, 224, 0.5) !important;
+    transition: all 0.3s ease !important;
+  }
+
+  &__header {
+    margin-bottom: 20px;
+  }
+}
