@@ -25,8 +25,9 @@ const Navbar = ({ toggleDrawer }: INavbar) => {
                 color="inherit"
                 aria-label="menu"
                 sx={{ mr: 2 }}
+                onClick={() => toggleDrawer(true)}
               >
-                <MenuIcon onClick={toggleDrawer(true)} />
+                <MenuIcon />
               </IconButton>
               <Typography
                 variant="h6"

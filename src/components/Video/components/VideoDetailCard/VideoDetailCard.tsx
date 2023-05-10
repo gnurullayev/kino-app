@@ -1,7 +1,14 @@
 import { Box, Typography } from "@mui/material";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import React from "react";
 import style from "./videoDetailCard.module.scss";
+import { useRouter } from "next/router";
+interface IProps {
+  id: string | number;
+  name: string;
+  year: string;
+  image: string | StaticImageData;
+}
 
 const timeStile = {
   position: "absolute",
@@ -12,12 +19,16 @@ const timeStile = {
   padding: "4px 10px",
   fontSize: "12px",
 };
-const VideoDetailCard = () => {
+const VideoDetailCard = ({ id, image, name, year }: IProps) => {
+  const router = useRouter();
   return (
-    <Box className={style.video_detail_card}>
+    <Box
+      className={style.video_detail_card}
+      onClick={() => router.push(`/movie/${id}`)}
+    >
       <Box className={style.video_detail_card__img}>
         <Image
-          src="https://media.graphassets.com/0aWn8NPUQNOx2S7qqqvt"
+          src={image}
           alt="card img"
           width={260}
           height={150}
@@ -35,14 +46,14 @@ const VideoDetailCard = () => {
           variant="h6"
           component="h6"
         >
-          Transformerlar: Maxluqlarning yuksalishi
+          {name}
         </Typography>
         <Typography
           className={style.video_detail_card__year}
           component="span"
           sx={{ color: "#909090" }}
         >
-          2017
+          {year}
         </Typography>
       </Box>
     </Box>
