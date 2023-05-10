@@ -8,10 +8,7 @@ const Movies = () => {
       <Box component="section" className="movies_hero">
         <Box className="movies_hero__container container">
           <Box className="movies_hero__inner">
-            <MoviesHead
-              title="Tarjima kinolar"
-              pageUrlLabel="translation-film"
-            />
+            <MoviesHead />
             <MoviesList />
             <PaginationComponent />
           </Box>

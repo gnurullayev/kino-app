@@ -1,8 +1,20 @@
-import React from "react";
+import { useContext } from "react";
 import { Box, Typography, Button } from "@mui/material";
 import { ISectionHeader } from "./sectonHeader.props";
+import { useRouter } from "next/router";
+import { TitleContext } from "@/src/context/TitleContext/TitleContext";
 
-const SectionHeader = ({ title, subtitle }: ISectionHeader) => {
+interface IData extends ISectionHeader {
+  url: string;
+}
+const SectionHeader = ({ title, subtitle, url }: IData) => {
+  const router = useRouter();
+  const { changeTitle } = useContext(TitleContext);
+
+  const handleClick = (data: IData): void => {
+    changeTitle(data);
+    router.push(`/movies/${data.url}`);
+  };
   return (
     <Box
       sx={{
@@ -22,7 +34,11 @@ const SectionHeader = ({ title, subtitle }: ISectionHeader) => {
           {subtitle}
         </Typography>
       </Box>
-      <Button variant="outlined" color={"success"}>
+      <Button
+        variant="outlined"
+        color={"success"}
+        onClick={() => handleClick({ title, url })}
+      >
         Barchasi
       </Button>
     </Box>

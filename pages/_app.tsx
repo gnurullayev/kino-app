@@ -8,6 +8,7 @@ import createEmotionCache from "@/src/helpers/createEmotionCache";
 
 import "@/styles/globals.scss";
 import "@/styles/swiper.scss";
+import { TitleContextProvider } from "@/src/context";
 //Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache();
 
@@ -18,13 +19,15 @@ export interface MyAppProps extends AppProps {
 export default function App(props: MyAppProps) {
   const { Component, pageProps, emotionCache = clientSideEmotionCache } = props;
   return (
-    <CacheProvider value={emotionCache}>
-      <ThemeProvider theme={theme}>
-        <CssBaseline />
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
-      </ThemeProvider>
-    </CacheProvider>
+    <TitleContextProvider>
+      <CacheProvider value={emotionCache}>
+        <ThemeProvider theme={theme}>
+          <CssBaseline />
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+        </ThemeProvider>
+      </CacheProvider>
+    </TitleContextProvider>
   );
 }

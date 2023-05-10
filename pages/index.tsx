@@ -10,12 +10,14 @@ export default function Home() {
         title="Seriallar"
         subtitle="Eng Sara seriallar"
         list={heroData}
+        url="serials"
       />
 
       <CategorySection
         title="Hind kinolar"
         subtitle="Eng Sara hind kinolar"
         list={heroData}
+        url="indian-movies"
       />
     </Box>
   );

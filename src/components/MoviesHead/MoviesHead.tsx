@@ -1,15 +1,14 @@
-import { Box, Breadcrumbs, Typography } from "@mui/material";
+import { useContext } from "react";
+import { Box, Typography } from "@mui/material";
 import React from "react";
 import { BreadcrumbsComponent } from "../";
-type PropsType = {
-  title: string;
-  pageUrlLabel: string;
-};
+import { TitleContext } from "@/src/context/TitleContext/TitleContext";
 
-const MoviesHead = ({ title, pageUrlLabel }: PropsType) => {
+const MoviesHead = () => {
+  const { title, url, changeTitle } = useContext(TitleContext);
   return (
     <>
-      <BreadcrumbsComponent label={pageUrlLabel} />
+      <BreadcrumbsComponent label={url} />
       <Box
         sx={{
           pt: "10px",

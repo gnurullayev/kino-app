@@ -5,12 +5,12 @@ import SectionHeader from "../SectionHeader/SectionHeader";
 import { ICategorySection } from "./categorySection.props";
 import FilmCard from "../FilmCard/FilmCard";
 
-const CategorySection = ({ title, subtitle, list }: ICategorySection) => {
+const CategorySection = ({ title, subtitle, list, url }: ICategorySection) => {
   return (
     <Box className="section" component="section" sx={{ pb: "30px" }}>
       <Box className="container">
         <Box className="section-inner">
-          <SectionHeader title={title} subtitle={subtitle} />
+          <SectionHeader title={title} subtitle={subtitle} url={url} />
           <Box sx={{ flexGrow: 1 }}>
             <Grid container spacing={3} justifyContent={"center"}>
               {list.map((item) => (

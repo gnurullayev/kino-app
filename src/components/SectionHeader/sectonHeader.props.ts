@@ -1,4 +1,4 @@
 export interface ISectionHeader {
   title: string;
-  subtitle: string;
+  subtitle?: string;
 }

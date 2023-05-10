@@ -2,9 +2,15 @@ import React from "react";
 import { Box, Typography, Card, CardContent } from "@mui/material";
 import Image from "next/image";
 import { IFilmCard } from "./filmCard.props";
-const FilmCard = ({ image, title, description, year }: IFilmCard) => {
+import { useRouter } from "next/router";
+const FilmCard = ({ image, title, year, id }: IFilmCard) => {
+  const router = useRouter();
   return (
-    <Card sx={{ maxWidth: "100%" }} className="film-card">
+    <Card
+      sx={{ maxWidth: "100%" }}
+      className="film-card"
+      onClick={() => router.push(`/movie/${id}`)}
+    >
       <Box sx={{ position: "relative", minHeight: "200px" }}>
         <Image
           src={image}
