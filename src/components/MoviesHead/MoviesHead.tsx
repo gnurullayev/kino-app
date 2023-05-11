@@ -5,10 +5,10 @@ import { BreadcrumbsComponent } from "../";
 import { TitleContext } from "@/src/context/TitleContext/TitleContext";
 
 const MoviesHead = () => {
-  const { title, url, changeTitle } = useContext(TitleContext);
+  const { title } = useContext(TitleContext);
   return (
     <>
-      <BreadcrumbsComponent label={url} />
+      <BreadcrumbsComponent label={title} />
       <Box
         sx={{
           pt: "10px",

@@ -1,11 +1,11 @@
 import { createContext, useState, ReactNode } from "react";
-interface IData {
+export interface ITitleContextData {
   title: string;
-  url: string;
+  url: string | number;
 }
 
-export interface ValueType extends IData {
-  changeTitle: (a: IData) => void;
+export interface ValueType extends ITitleContextData {
+  changeTitle: (a: ITitleContextData) => void;
 }
 
 interface IProps {
@@ -14,13 +14,13 @@ interface IProps {
 
 export const TitleContext = createContext<ValueType>({
   title: "",
-  changeTitle: (a: IData): void => {},
+  changeTitle: (a: ITitleContextData): void => {},
   url: "",
 });
 
 const TitleContextProvider = ({ children }: IProps) => {
-  const [data, setData] = useState<IData>({ title: "", url: "" });
-  const changeTitle = (value: IData): void => {
+  const [data, setData] = useState<ITitleContextData>({ title: "", url: "" });
+  const changeTitle = (value: ITitleContextData): void => {
     setData(value);
   };
 

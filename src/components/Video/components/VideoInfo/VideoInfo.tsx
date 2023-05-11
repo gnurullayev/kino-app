@@ -34,11 +34,11 @@ const VideoInfo = () => {
                 component="span"
                 sx={{ fontSize: "14px" }}
               >{`Ko'proq o'qish`}</Typography>
-              <KeyboardDoubleArrowRightIcon sx={{ fontSize: "24px" }} />
+              <KeyboardDoubleArrowRightIcon sx={{ fontSize: "18px" }} />
             </>
           ) : (
             <>
-              <KeyboardDoubleArrowLeftIcon sx={{ fontSize: "24px" }} />
+              <KeyboardDoubleArrowLeftIcon sx={{ fontSize: "18px" }} />
               <Typography
                 component="span"
                 sx={{ fontSize: "14px" }}
