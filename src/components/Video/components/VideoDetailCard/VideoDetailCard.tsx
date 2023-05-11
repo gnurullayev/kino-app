@@ -1,8 +1,13 @@
 import { Box, Typography } from "@mui/material";
 import Image, { StaticImageData } from "next/image";
-import React from "react";
+import { useContext } from "react";
 import style from "./videoDetailCard.module.scss";
 import { useRouter } from "next/router";
+import {
+  ITitleContextData,
+  TitleContext,
+  ValueType,
+} from "@/src/context/TitleContext/TitleContext";
 interface IProps {
   id: string | number;
   name: string;
@@ -19,12 +24,20 @@ const timeStile = {
   padding: "4px 10px",
   fontSize: "12px",
 };
+
 const VideoDetailCard = ({ id, image, name, year }: IProps) => {
   const router = useRouter();
+  const { changeTitle } = useContext<ValueType>(TitleContext);
+  const handleClick = (data: ITitleContextData): void => {
+    changeTitle(data);
+  };
   return (
     <Box
       className={style.video_detail_card}
-      onClick={() => router.push(`/movie/${id}`)}
+      onClick={() => {
+        router.push(`/movie/${id}`);
+        handleClick({ title: name, url: id });
+      }}
     >
       <Box className={style.video_detail_card__img}>
         <Image

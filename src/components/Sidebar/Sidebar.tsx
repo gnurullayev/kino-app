@@ -8,6 +8,7 @@ import {
   ListItemText,
   Divider,
   Drawer,
+  Typography,
 } from "@mui/material";
 import InboxIcon from "@mui/icons-material/MoveToInbox";
 import MailIcon from "@mui/icons-material/Mail";
@@ -54,6 +55,17 @@ export const Sidebar = ({ setActive, active }: ISidebar) => {
       onClick={toggleDrawer(false)}
       onKeyDown={toggleDrawer(false)}
     >
+      <Typography
+        variant="h6"
+        component="p"
+        sx={{ flexGrow: 1, cursor: "pointer", pl: "16px" }}
+        onClick={() => router.push("/")}
+      >
+        Muz
+        <Typography variant="h6" component="span" className="header-logo">
+          Kino
+        </Typography>
+      </Typography>
       <List>
         {SidebarData.map((text, index) => (
           <ListItem

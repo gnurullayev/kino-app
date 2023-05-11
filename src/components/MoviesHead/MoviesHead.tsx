@@ -5,7 +5,7 @@ import { BreadcrumbsComponent } from "../";
 import { TitleContext } from "@/src/context/TitleContext/TitleContext";
 
 const MoviesHead = () => {
-  const { title, url } = useContext(TitleContext);
+  const { title } = useContext(TitleContext);
   return (
     <>
       <BreadcrumbsComponent label={title} />
