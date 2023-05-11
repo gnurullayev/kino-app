@@ -8,11 +8,14 @@ import {
   IconButton,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
-import { INavbar } from "./navbar.props";
 
 import style from "./navbar.module.scss";
 
-const Navbar = ({ toggleDrawer }: INavbar) => {
+interface INavbar {
+  setActive: (a: boolean) => void;
+}
+
+const Navbar = ({ setActive }: INavbar) => {
   return (
     <Box className={style.navbar}>
       <Box sx={{ flexGrow: 1 }}>
@@ -25,7 +28,10 @@ const Navbar = ({ toggleDrawer }: INavbar) => {
                 color="inherit"
                 aria-label="menu"
                 sx={{ mr: 2 }}
-                onClick={() => toggleDrawer(true)}
+                onClick={() => {
+                  setActive(true);
+                  console.log("ffsd");
+                }}
               >
                 <MenuIcon />
               </IconButton>

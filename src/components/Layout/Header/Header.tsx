@@ -4,23 +4,12 @@ import style from "@/src/components/Layout/Header/header.module.scss";
 
 const Header = () => {
   const [active, setActive] = useState<boolean>(false);
-  const toggleDrawer =
-    (open: boolean) => (event: React.KeyboardEvent | React.MouseEvent) => {
-      if (
-        event.type === "keydown" &&
-        ((event as React.KeyboardEvent).key === "Tab" ||
-          (event as React.KeyboardEvent).key === "Shift")
-      ) {
-        return;
-      }
 
-      setActive(open);
-    };
   return (
     <div className="header">
-      <Navbar toggleDrawer={toggleDrawer} />
+      <Navbar setActive={setActive} />
       <Nav />
-      <Sidebar toggleDrawer={toggleDrawer} active={active} />
+      <Sidebar setActive={setActive} active={active} />
     </div>
   );
 };

@@ -14,9 +14,7 @@ import MailIcon from "@mui/icons-material/Mail";
 import { ISidebarData } from "./sidebar.props";
 import { useRouter } from "next/router";
 interface ISidebar {
-  toggleDrawer: (
-    open: boolean
-  ) => (event: React.KeyboardEvent | React.MouseEvent) => void;
+  setActive: (a: boolean) => void;
   active: boolean;
 }
 const SidebarData: ISidebarData[] = [
@@ -35,8 +33,21 @@ const NewData: ISidebarData[] = [
   { label: "Hukumdor usmon", id: 5, path: "/konsert" },
 ];
 
-export const Sidebar = ({ toggleDrawer, active }: ISidebar) => {
+export const Sidebar = ({ setActive, active }: ISidebar) => {
   const router = useRouter();
+  const toggleDrawer =
+    (open: boolean) => (event: React.KeyboardEvent | React.MouseEvent) => {
+      setActive(open);
+      console.log(open);
+      if (
+        event.type === "keydown" &&
+        ((event as React.KeyboardEvent).key === "Tab" ||
+          (event as React.KeyboardEvent).key === "Shift")
+      ) {
+        return;
+      }
+    };
+
   const list = () => (
     <Box
       role="presentation"

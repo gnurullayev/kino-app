@@ -1,15 +1,19 @@
 import { useContext } from "react";
 import { Box, Typography, Button } from "@mui/material";
-import { ISectionHeader } from "./sectonHeader.props";
 import { useRouter } from "next/router";
-import { TitleContext } from "@/src/context/TitleContext/TitleContext";
+import {
+  TitleContext,
+  ValueType,
+} from "@/src/context/TitleContext/TitleContext";
 
-interface IData extends ISectionHeader {
+interface IData {
   url: string;
+  title: string;
+  subtitle?: string;
 }
 const SectionHeader = ({ title, subtitle, url }: IData) => {
   const router = useRouter();
-  const { changeTitle } = useContext(TitleContext);
+  const { changeTitle } = useContext<ValueType>(TitleContext);
 
   const handleClick = (data: IData): void => {
     changeTitle(data);
