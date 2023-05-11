@@ -4,7 +4,7 @@ interface IData {
   url: string;
 }
 
-interface ValueType extends IData {
+export interface ValueType extends IData {
   changeTitle: (a: IData) => void;
 }
 
@@ -12,7 +12,11 @@ interface IProps {
   children: ReactNode;
 }
 
-export const TitleContext = createContext<ValueType>({});
+export const TitleContext = createContext<ValueType>({
+  title: "",
+  changeTitle: (a: IData): void => {},
+  url: "",
+});
 
 const TitleContextProvider = ({ children }: IProps) => {
   const [data, setData] = useState<IData>({ title: "", url: "" });
@@ -20,7 +24,11 @@ const TitleContextProvider = ({ children }: IProps) => {
     setData(value);
   };
 
-  const value: ValueType = { title: data.title, url: data.url, changeTitle };
+  const value: ValueType = {
+    title: data.title,
+    url: data.url,
+    changeTitle,
+  };
   return (
     <TitleContext.Provider value={value}>{children}</TitleContext.Provider>
   );
