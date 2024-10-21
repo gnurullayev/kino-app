@@ -1,0 +1,22 @@
+.vide_box {
+  //   border: 1px solid red;
+  //   background-color: green;
+}
+
+.video_css {
+  //   background-color: red;
+  width: 100% !important;
+  max-width: 1200px;
+  height: 100% !important;
+  max-height: 500px !important;
+}
+
+.video_css div[class*="vp-preview-invisible"] {
+  height: 500px;
+}
+
+@media (max-width: 750px) {
+  .video_css {
+    height: 50vh !important;
+  }
+}
