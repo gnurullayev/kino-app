@@ -1,7 +1,7 @@
 import { createContext, useState, ReactNode } from "react";
 export interface ITitleContextData {
   title: string;
-  url: string | number;
+  url: string | number | null;
 }
 
 export interface ValueType extends ITitleContextData {

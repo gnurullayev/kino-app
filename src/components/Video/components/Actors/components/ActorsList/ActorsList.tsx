@@ -8,8 +8,8 @@ import "swiper/css";
 import "swiper/css/pagination";
 
 import { Navigation } from "swiper";
-import { heroData } from "@/src/components/HomeHeroCarusel/data";
-import HomeSliderCard from "@/src/components/HomeSliderCard/HomeSliderCard";
+import { heroData } from "@/features/home/components/HomeHeroCarusel/data";
+import HomeSliderCard from "@/features/home/components/HomeSliderCard";
 
 const ActorsList = () => {
   return (

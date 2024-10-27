@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FC } from "react";
 import { Box } from "@mui/material";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
@@ -12,9 +12,15 @@ import "swiper/css/pagination";
 import { Navigation } from "swiper";
 
 import { heroData } from "./data";
-import HomeSliderCard from "../HomeSliderCard/HomeSliderCard";
+import HomeSliderCard from "../HomeSliderCard";
+import { IMovie } from "@/interfaces/movie";
+import { ISeries } from "@/interfaces/series";
 
-const HomeHeroCarousel = () => {
+interface Props {
+  data: IMovie[] & ISeries[];
+}
+
+const HomeHeroCarousel: FC<Props> = ({ data }) => {
   return (
     <Box className="home_hero_carousel" sx={{ p: "20px 0" }}>
       <Swiper
@@ -45,12 +51,11 @@ const HomeHeroCarousel = () => {
         }}
         className="mySwiper home-hero-carousel"
       >
-        {heroData.map((item) => (
+        {data.map((item) => (
           <SwiperSlide key={item.id} className="nav-item">
             <HomeSliderCard
               name={item.title}
-              image={item.image}
-              slug={item.slug}
+              image={item.poster_url}
               id={item.id}
             />
           </SwiperSlide>

@@ -17,7 +17,7 @@ import {
   HomeImage26,
   HomeImage27,
   HomeImage28,
-} from "@/src/assets/homeImages";
+} from "@/assets/homeImages";
 import { IHeroData } from "./homeHeroCarousel.props";
 
 export const heroData: IHeroData[] = [

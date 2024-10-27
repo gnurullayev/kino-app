@@ -1,6 +1,6 @@
 import React from "react";
 import { Box } from "@mui/material";
-import { MoviesHead, MoviesList, PaginationComponent } from "@/src/components";
+import { MoviesHead, MoviesList, PaginationComponent } from "@/components";
 
 const Movies = () => {
   return (

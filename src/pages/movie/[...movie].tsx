@@ -1,8 +1,5 @@
-import { INavData } from "@/src/components/Nav/nav.props";
-import {
-  TitleContext,
-  ValueType,
-} from "@/src/context/TitleContext/TitleContext";
+import { INavData } from "@/components/Nav/nav.props";
+import { TitleContext, ValueType } from "@/context/TitleContext/TitleContext";
 import { Box } from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2";
 import { useRouter } from "next/router";

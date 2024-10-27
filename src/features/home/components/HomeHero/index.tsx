@@ -1,9 +1,16 @@
-import React from "react";
+import React, { FC } from "react";
 import { Box, Typography } from "@mui/material";
-import styles from "./homeHero.module.scss";
-import HomeHeroCarousel from "../HomeHeroCarusel/HomeHeroCarusel";
+import HomeHeroCarousel from "../HomeHeroCarusel";
+import { IMovie } from "@/interfaces/movie";
+import { ISeries } from "@/interfaces/series";
 
-const HomeHero = () => {
+interface Props {
+  data: IMovie[] & ISeries[];
+}
+
+const HomeHero: FC<Props> = ({ data }) => {
+  console.log("data", data);
+
   return (
     <Box className="home-hero">
       <Box className="container">
@@ -16,7 +23,7 @@ const HomeHero = () => {
               Eng sara premyeralar bizda
             </Typography>
 
-            <HomeHeroCarousel />
+            <HomeHeroCarousel data={data} />
           </Box>
         </Box>
       </Box>

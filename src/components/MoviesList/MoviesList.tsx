@@ -1,7 +1,7 @@
 import { Box } from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2";
 import FilmCard from "../FilmCard/FilmCard";
-import { heroData } from "../HomeHeroCarusel/data";
+import { heroData } from "../../features/home/components/HomeHeroCarusel/data";
 import style from "./moviesList.module.scss";
 
 const MoviesList = () => {

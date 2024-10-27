@@ -1,14 +1,14 @@
-import { Layout } from "@/src/components";
 import type { AppProps } from "next/app";
 import { ThemeProvider } from "@mui/material";
 import CssBaseline from "@mui/material/CssBaseline";
 import { CacheProvider, EmotionCache } from "@emotion/react";
-import theme from "@/src/helpers/theme";
-import createEmotionCache from "@/src/helpers/createEmotionCache";
+import theme from "@/helpers/theme";
+import createEmotionCache from "@/helpers/createEmotionCache";
 
-import "@/styles/globals.scss";
-import "@/styles/swiper.scss";
-import { TitleContextProvider } from "@/src/context";
+import "../styles/globals.scss";
+import "../styles/swiper.scss";
+import { TitleContextProvider } from "@/context";
+import { Layout } from "@/components";
 //Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache();
 

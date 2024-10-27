@@ -1,10 +1,7 @@
 import { useContext } from "react";
 import { Box, Typography, Button } from "@mui/material";
 import { useRouter } from "next/router";
-import {
-  TitleContext,
-  ValueType,
-} from "@/src/context/TitleContext/TitleContext";
+import { TitleContext, ValueType } from "@/context/TitleContext/TitleContext";
 
 interface IData {
   url: string;

@@ -1,4 +1,4 @@
-import { IHeroData } from "../HomeHeroCarusel/homeHeroCarousel.props";
+import { IHeroData } from "../../features/home/components/HomeHeroCarusel/homeHeroCarousel.props";
 
 export interface ICategorySection {
   title: string;

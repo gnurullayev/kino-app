@@ -7,7 +7,7 @@ import {
   ITitleContextData,
   TitleContext,
   ValueType,
-} from "@/src/context/TitleContext/TitleContext";
+} from "@/context/TitleContext/TitleContext";
 
 const HomeSliderCard = ({ image, name, id }: IHomeSliderCard) => {
   const router = useRouter();
@@ -28,8 +28,8 @@ const HomeSliderCard = ({ image, name, id }: IHomeSliderCard) => {
         <Image
           src={image}
           alt={name}
-          style={{ width: "100%", height: "200px", objectFit: "inherit" }}
-          //   fill
+          // style={{ width: "100%", height: "200px", objectFit: "inherit" }}
+          fill
           //   objectPosition="center top"
         />
       </Box>

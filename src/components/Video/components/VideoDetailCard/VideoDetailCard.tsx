@@ -7,7 +7,7 @@ import {
   ITitleContextData,
   TitleContext,
   ValueType,
-} from "@/src/context/TitleContext/TitleContext";
+} from "@/context/TitleContext/TitleContext";
 interface IProps {
   id: string | number;
   name: string;

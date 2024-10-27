@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { Box, Typography } from "@mui/material";
 import React from "react";
 import { BreadcrumbsComponent } from "../";
-import { TitleContext } from "@/src/context/TitleContext/TitleContext";
+import { TitleContext } from "@/context/TitleContext/TitleContext";
 
 const MoviesHead = () => {
   const { title } = useContext(TitleContext);

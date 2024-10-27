@@ -1,7 +1,7 @@
 import { Box, Typography } from "@mui/material";
 import React from "react";
 import { VideoDetailCard } from "../";
-import { heroData } from "@/src/components/HomeHeroCarusel/data";
+import { heroData } from "@/features/home/components/HomeHeroCarusel/data";
 
 const VideoDetailCardList = () => {
   const list: number[] = [1, 2, 3, 4, 5, 6];
