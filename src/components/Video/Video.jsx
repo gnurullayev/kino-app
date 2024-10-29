@@ -5,7 +5,6 @@ import css from "./video.module.scss";
 const Video = () => {
   const [playing, setPlaying] = useState(false);
 
-  console.log(playing);
   return (
     <div className={css.vide_box}>
       {/* <button style={{ height: "50px" }} onClick={() => setPlaying(!playing)}>

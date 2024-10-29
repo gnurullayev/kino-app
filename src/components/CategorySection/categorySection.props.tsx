@@ -1,8 +1,9 @@
-import { IHeroData } from "../../features/home/components/HomeHeroCarusel/homeHeroCarousel.props";
+import { HomeSeries } from "@/interfaces/home";
 
-export interface ICategorySection {
+
+export interface ICategorySection  {
   title: string;
   url: string;
   subtitle: string;
-  list: IHeroData[];
+  list: HomeSeries[];
 }

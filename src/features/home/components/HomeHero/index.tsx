@@ -9,8 +9,6 @@ interface Props {
 }
 
 const HomeHero: FC<Props> = ({ data }) => {
-  console.log("data", data);
-
   return (
     <Box className="home-hero">
       <Box className="container">

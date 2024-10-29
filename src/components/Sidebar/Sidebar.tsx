@@ -39,7 +39,6 @@ export const Sidebar = ({ setActive, active }: ISidebar) => {
   const toggleDrawer =
     (open: boolean) => (event: React.KeyboardEvent | React.MouseEvent) => {
       setActive(open);
-      console.log(open);
       if (
         event.type === "keydown" &&
         ((event as React.KeyboardEvent).key === "Tab" ||

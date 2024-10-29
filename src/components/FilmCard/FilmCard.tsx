@@ -1,9 +1,17 @@
-import React from "react";
+import React, { FC } from "react";
 import { Box, Typography, Card, CardContent } from "@mui/material";
 import Image from "next/image";
 import { IFilmCard } from "./filmCard.props";
 import { useRouter } from "next/router";
-const FilmCard = ({ image, title, year, id }: IFilmCard) => {
+
+interface Props {
+  id: number;
+  title: string;
+  short_content:string;
+  poster_url:string;
+}
+
+const FilmCard:FC<Props> = ({ poster_url,title,id }) => {
   const router = useRouter();
   return (
     <Card
@@ -13,7 +21,7 @@ const FilmCard = ({ image, title, year, id }: IFilmCard) => {
     >
       <Box sx={{ position: "relative", minHeight: "200px" }}>
         <Image
-          src={image}
+          src={poster_url}
           alt={title}
           width={350}
           height={200}
@@ -26,7 +34,7 @@ const FilmCard = ({ image, title, year, id }: IFilmCard) => {
         <Typography gutterBottom variant="h6" component="div">
           {title}
         </Typography>
-        <Typography variant="body2">{year}</Typography>
+        {/* <Typography variant="body2">{year}</Typography> */}
       </CardContent>
     </Card>
   );

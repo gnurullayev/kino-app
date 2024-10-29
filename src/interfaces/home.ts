@@ -2,10 +2,9 @@ import { IMovie } from "./movie";
 import { ISeries } from "./series";
 
 export interface HomeSeries {
-  id: number;
-  name: string;
-  total_movies: number;
-  movies: IMovie[];
+  id:number;
+  name:string;
+  list:IMovie[];
 }
 
 export interface HomeCategory {
@@ -15,7 +14,7 @@ export interface HomeCategory {
 }
 
 export interface IHome {
-  categories: HomeCategory;
+  categories: HomeCategory[];
   series: HomeSeries;
   top_movies: IMovie[] & ISeries[];
 }
