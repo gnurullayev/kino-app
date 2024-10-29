@@ -2,13 +2,15 @@ import { CategorySection } from "@/components";
 import React, { FC } from "react";
 import HomeHero from "./components/HomeHero";
 import { IHome } from "@/interfaces/home";
+import { route } from "@/utils";
+import Routes from "@/enums/routes";
+import Movie from "@/enums/movie";
 
 interface Props {
   data: IHome;
 }
 
 const Home: FC<Props> = ({ data }) => {
-
   console.log(data);
 
   return (
@@ -17,22 +19,23 @@ const Home: FC<Props> = ({ data }) => {
 
       <CategorySection
         title={data.series.name}
-        subtitle="Eng Sara seriallar"
+        subtitle={""}
         list={data.series.list}
-        url="http://localhost:3001/"
+        url={route(Routes.MOVIES, { id: data.series.id, key: Movie.SERIES })}
       />
-      {
-        data.categories.length > 0 &&
-        data.categories.map(category => (
+      {data.categories.length > 0 &&
+        data.categories.map((category) => (
           <CategorySection
             key={category.id}
             title={category.name}
-            subtitle="Eng Sara hind kinolar"
+            subtitle={""}
             list={category.movies}
-            url="http://localhost:3001/"
+            url={route(Routes.MOVIES, {
+              id: category.id,
+              key: Movie.MOVIE,
+            })}
           />
-        ))
-      }
+        ))}
     </>
   );
 };

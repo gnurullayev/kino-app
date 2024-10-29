@@ -14,7 +14,7 @@ const SectionHeader = ({ title, subtitle, url }: IData) => {
 
   const handleClick = (data: IData): void => {
     changeTitle(data);
-    router.push(`/movies/${data.url}`);
+    router.push(data.url);
   };
   return (
     <Box

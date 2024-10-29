@@ -9,6 +9,7 @@ const MoviesHead = () => {
   return (
     <>
       <BreadcrumbsComponent label={title} />
+
       <Box
         sx={{
           pt: "10px",
