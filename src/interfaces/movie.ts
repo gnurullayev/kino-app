@@ -16,3 +16,17 @@ export interface IMovie {
   genre: string;
   is_active: boolean;
 }
+
+
+export interface IMoviesByCategory {
+  id: number;
+  name: string;
+  short_content: string;
+  description: string;
+  movies_data:{
+    current_page: number,
+    data: IMovie[],
+    per_page: number,
+    total: number
+  }
+}

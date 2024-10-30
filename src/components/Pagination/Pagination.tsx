@@ -1,14 +1,28 @@
 import { Box, Pagination } from "@mui/material";
-import React from "react";
+import React, { FC } from "react";
 
-const PaginationComponent = () => {
+interface Props {
+  total:number,
+  activePage:number,
+  changePaginate:()=>void
+}
+
+export function calculatePaginate(total:number,perPage:number): number {
+
+  const pages = Math.ceil(total/perPage)
+
+  return pages;
+}
+
+const PaginationComponent:FC<Props> = ({total,activePage,changePaginate}) => {
   return (
     <Box
       className="pagination"
       sx={{ pt: "10px", pb: "30px", display: "flex", justifyContent: "center" }}
     >
       <Pagination
-        count={10}
+        count={calculatePaginate(total,10)}
+        page={activePage}
         variant="outlined"
         color="secondary"
         sx={{ color: "green !important" }}

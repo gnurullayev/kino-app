@@ -23,10 +23,12 @@ const BreadcrumbsComponent = ({ label }: PropsType) => {
     >
       Bosh sahifa
     </Link>,
+
     <Typography key="3" color={"white"}>
       {label}
     </Typography>,
   ];
+  
   return (
     <Box
       className="breadcrumbs"

@@ -29,4 +29,7 @@ axiosInstance.interceptors.request.use(
 export const API = {
   //Home page
   getHome: () => axiosInstance.get("home").then((res) => res.data?.data),
+
+  //Movies
+  moviesByCategory:(id:number,params:any) => axiosInstance.get("all-movies/" + id,{params}).then((res) => res.data?.data),
 };
