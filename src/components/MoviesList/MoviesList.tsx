@@ -1,22 +1,27 @@
 import { Box } from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2";
 import FilmCard from "../FilmCard/FilmCard";
-import { heroData } from "../../features/home/components/HomeHeroCarusel/data";
 import style from "./moviesList.module.scss";
+import { IMovie } from "@/interfaces/movie";
+import { FC } from "react";
 
-const MoviesList = () => {
+interface Props {
+  data: IMovie[];
+}
+
+const MoviesList: FC<Props> = ({ data }) => {
   return (
     <Grid
       container
       spacing={3}
-      justifyContent={"center"}
+      justifyContent={"start"}
       component="ul"
       className={style.movies_list}
     >
-      {heroData.map((item) => (
+      {data.map((item) => (
         <Grid key={item.id} xs={12} sm={4} md={3} component="li">
           <Box className={style.movies_item}>
-            <FilmCard {...item} />
+            <FilmCard {...item} type={item.type} />
           </Box>
         </Grid>
       ))}

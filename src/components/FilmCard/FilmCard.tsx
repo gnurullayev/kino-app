@@ -3,21 +3,26 @@ import { Box, Typography, Card, CardContent } from "@mui/material";
 import Image from "next/image";
 import { IFilmCard } from "./filmCard.props";
 import { useRouter } from "next/router";
+import { route } from "@/utils";
+import Routes from "@/enums/routes";
 
 interface Props {
   id: number;
   title: string;
-  short_content:string;
-  poster_url:string;
+  short_content: string;
+  poster_url: string;
+  type: string;
 }
 
-const FilmCard:FC<Props> = ({ poster_url,title,id }) => {
+const FilmCard: FC<Props> = ({ poster_url, title, id, type }) => {
   const router = useRouter();
+  const key = type ? type : "series";
+
   return (
     <Card
       sx={{ maxWidth: "100%" }}
       className="film-card"
-      onClick={() => router.push(`/movie/${id}`)}
+      onClick={() => router.push(route(Routes.MOVIE, { id, key }))}
     >
       <Box sx={{ position: "relative", minHeight: "200px" }}>
         <Image
@@ -34,7 +39,6 @@ const FilmCard:FC<Props> = ({ poster_url,title,id }) => {
         <Typography gutterBottom variant="h6" component="div">
           {title}
         </Typography>
-        {/* <Typography variant="body2">{year}</Typography> */}
       </CardContent>
     </Card>
   );
