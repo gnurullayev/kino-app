@@ -11,7 +11,7 @@ import {
 interface IProps {
   id: string | number;
   name: string;
-  year: string;
+  year: string | number;
   image: string | StaticImageData;
 }
 

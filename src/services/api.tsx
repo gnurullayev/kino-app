@@ -31,5 +31,12 @@ export const API = {
   getHome: () => axiosInstance.get("home").then((res) => res.data?.data),
 
   //Movies
-  moviesByCategory:(id:number,params:any) => axiosInstance.get("all-movies/" + id,{params}).then((res) => res.data?.data),
+  moviesByCategory: (id: number, params: any) =>
+    axiosInstance
+      .get("all-movies/" + id, { params })
+      .then((res) => res.data?.data),
+  movieDetail: (id: number, type: string) =>
+    axiosInstance
+      .get(`movie-detail/${id}/${type}`)
+      .then((res) => res.data?.data),
 };

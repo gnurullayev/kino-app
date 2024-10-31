@@ -1,3 +1,5 @@
+import { MovieQuality } from "./quality";
+
 export interface ISeries {
   id: string | null;
   title: string;
@@ -9,4 +11,12 @@ export interface ISeries {
   total_movies: number;
   short_content: string;
   views: string;
+}
+
+export interface ISeriesPart {
+  value: number;
+  label: number;
+  id: number;
+  title: string;
+  qualities: MovieQuality[];
 }

@@ -1,3 +1,6 @@
+import { MovieQuality } from "./quality";
+import { ISeriesPart } from "./series";
+
 export interface IMovie {
   id: number;
   title: string;
@@ -17,16 +20,36 @@ export interface IMovie {
   is_active: boolean;
 }
 
-
 export interface IMoviesByCategory {
   id: number;
   name: string;
   short_content: string;
   description: string;
-  movies_data:{
-    current_page: number,
-    data: IMovie[],
-    per_page: number,
-    total: number
-  }
+  movies_data: {
+    current_page: number;
+    data: IMovie[];
+    per_page: number;
+    total: number;
+  };
+}
+
+export interface MoviesDetail {
+  id: number;
+  title: string;
+  release_date: string;
+  duration: number;
+  short_content: string;
+  description: string;
+  poster_url: string;
+  genre: string | null;
+  rating: number;
+  views: number;
+  movie_part_number: number;
+  type: "movie" | "series";
+  country_id: number;
+  category_id: number;
+  series_id: number | null;
+  qualities: MovieQuality[] | [];
+  other_movies: IMovie[];
+  serials_parts: ISeriesPart[] | [];
 }

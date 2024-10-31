@@ -1,6 +1,6 @@
-enum Movie {
+enum MovieType {
   SERIES = "series",
   MOVIE = "movie",
 }
 
-export default Movie;
+export default MovieType;
