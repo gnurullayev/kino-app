@@ -1,5 +1,6 @@
 import { INavData } from "@/components/Nav/nav.props";
 import { TitleContext, ValueType } from "@/context/TitleContext/TitleContext";
+import { useQuery } from "@/hooks/use-query";
 import { Box } from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2";
 import { useRouter } from "next/router";
@@ -17,6 +18,10 @@ interface IData {
 
 const Movie = () => {
   const { title, changeTitle } = useContext<ValueType>(TitleContext);
+  const {params, page, sort, desc, setParams}= useQuery()
+
+  console.log(params, page);
+  
 
   return (
     <Box className="movie" sx={{ pb: "20px" }}>
