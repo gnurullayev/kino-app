@@ -1,15 +1,24 @@
-import { useState } from "react";
+import { FC, useState } from "react";
 import { VideoInfBody, VideoInfoCard } from "./components";
 import { Box, Button, Typography } from "@mui/material";
 import KeyboardDoubleArrowRightIcon from "@mui/icons-material/KeyboardDoubleArrowRight";
 import KeyboardDoubleArrowLeftIcon from "@mui/icons-material/KeyboardDoubleArrowLeft";
 import style from "./VideoInfo.module.scss";
-const VideoInfo = () => {
+import { MoviesDetail } from "@/interfaces/movie";
+
+interface Props {
+  movie: MoviesDetail;
+}
+
+const VideoInfo: FC<Props> = ({ movie }) => {
   const [more, setMore] = useState<boolean>(false);
+
+  console.log(movie);
+
   return (
     <Box className={`${style.video_info} ${more ? style.active : ""}`}>
-      <VideoInfoCard />
-      <VideoInfBody />
+      <VideoInfoCard movie={movie} />
+      <VideoInfBody movie={movie} />
       <Box
         sx={{
           position: "absolute",

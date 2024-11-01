@@ -1,9 +1,15 @@
 import { Box, Typography } from "@mui/material";
 import Image from "next/image";
-import React from "react";
+import React, { FC } from "react";
 import style from "./VideoInfoCard.module.scss";
+import { MoviesDetail } from "@/interfaces/movie";
+import { formatDate, formatTime } from "@/utils";
 
-const VideoInfoCard = () => {
+interface Props {
+  movie: MoviesDetail;
+}
+
+const VideoInfoCard: FC<Props> = ({ movie }) => {
   return (
     <Box
       className={style.video_info_card}
@@ -11,8 +17,8 @@ const VideoInfoCard = () => {
     >
       <Box className={style.video_info_card__img}>
         <Image
-          src="https://media.graphassets.com/0aWn8NPUQNOx2S7qqqvt"
-          alt="card img"
+          src={movie?.poster_url ? movie.poster_url : ""}
+          alt={movie.title}
           width={180}
           height={250}
           style={{ objectFit: "cover", objectPosition: "center" }}
@@ -33,7 +39,7 @@ const VideoInfoCard = () => {
             component="b"
             className={style.video_info_card__content_bold}
           >
-            Maxluqlar uyasi (Логово)
+            {movie.title}
           </Typography>
         </Box>
 
@@ -48,7 +54,7 @@ const VideoInfoCard = () => {
             component="b"
             className={style.video_info_card__content_bold}
           >
-            03.05.2023
+            {movie.release_date}
           </Typography>
         </Box>
         <Box component="li" className={style.video_info_card__content_item}>
@@ -77,7 +83,7 @@ const VideoInfoCard = () => {
             component="b"
             className={style.video_info_card__content_link}
           >
-            2022
+            {formatDate(movie.release_date).year}
           </Typography>
         </Box>
 
@@ -92,7 +98,11 @@ const VideoInfoCard = () => {
             component="b"
             className={style.video_info_card__content_bold}
           >
-            1 soat. 36 min.
+            {`${formatTime(movie.duration).hours} soat ${
+              formatTime(movie.duration).mins > 0
+                ? formatTime(movie.duration).mins + " minut"
+                : ""
+            } `}
           </Typography>
         </Box>
 
@@ -107,7 +117,7 @@ const VideoInfoCard = () => {
             component="b"
             className={style.video_info_card__content_link}
           >
-            AQSH
+            {movie.country_name}
           </Typography>
         </Box>
 
@@ -145,7 +155,7 @@ const VideoInfoCard = () => {
           </Typography>
         </Box>
 
-        <Box component="li" className={style.video_info_card__content_item}>
+        {/* <Box component="li" className={style.video_info_card__content_item}>
           <Typography
             component="span"
             className={style.video_info_card__content_span}
@@ -158,7 +168,7 @@ const VideoInfoCard = () => {
           >
             Professional (PRO)
           </Typography>
-        </Box>
+        </Box> */}
       </Box>
     </Box>
   );

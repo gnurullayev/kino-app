@@ -47,6 +47,7 @@ export interface MoviesDetail {
   movie_part_number: number;
   type: "movie" | "series";
   country_id: number;
+  country_name: string;
   category_id: number;
   series_id: number | null;
   qualities: MovieQuality[] | [];
