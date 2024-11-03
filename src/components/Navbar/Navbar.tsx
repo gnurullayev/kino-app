@@ -10,12 +10,16 @@ import {
 import MenuIcon from "@mui/icons-material/Menu";
 
 import style from "./navbar.module.scss";
+import Routes from "@/enums/routes";
+import { useRouter } from "next/router";
+import { route } from "@/utils";
 
 interface INavbar {
   setActive: (a: boolean) => void;
 }
 
 const Navbar = ({ setActive }: INavbar) => {
+  const router = useRouter();
   return (
     <Box className={style.navbar}>
       <Box sx={{ flexGrow: 1 }}>
@@ -30,7 +34,6 @@ const Navbar = ({ setActive }: INavbar) => {
                 sx={{ mr: 2 }}
                 onClick={() => {
                   setActive(true);
-                  console.log("ffsd");
                 }}
               >
                 <MenuIcon />
@@ -49,7 +52,14 @@ const Navbar = ({ setActive }: INavbar) => {
                   Kino
                 </Typography>
               </Typography>
-              <Button color="inherit">Search</Button>
+              <Button
+                color="inherit"
+                onClick={() =>
+                  router.push(route(Routes.SEARCH_MOVIES, { search: "search" }))
+                }
+              >
+                Search
+              </Button>
             </Toolbar>
           </Box>
         </AppBar>

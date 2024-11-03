@@ -15,7 +15,11 @@ const VideoDetailLeft: FC<Props> = ({ movie, playMovie, setPlayMovie }) => {
   return (
     <Box className="movie-inner__start">
       <Box className="move__video" sx={{ width: "100%" }}>
-        <Video />
+        <Video
+          path={
+            "http://localhost:8000/storage/" + playMovie?.quality?.video_url
+          }
+        />
       </Box>
 
       <VideoBottom

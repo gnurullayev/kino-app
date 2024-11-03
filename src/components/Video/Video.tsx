@@ -1,8 +1,12 @@
-import React, { useState } from "react";
+import React, { FC, useState } from "react";
 import ReactPlayer from "react-player";
 import css from "./video.module.scss";
 
-const Video = () => {
+interface Props {
+  path: string;
+}
+
+const Video: FC<Props> = ({ path = "/video.mp4" }) => {
   const [playing, setPlaying] = useState(false);
 
   return (
@@ -12,7 +16,7 @@ const Video = () => {
       </button> */}
       <ReactPlayer
         className={css.video_css}
-        url="/video.mp4"
+        url={path}
         controls
         playing={playing}
 

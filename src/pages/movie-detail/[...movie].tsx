@@ -49,7 +49,12 @@ const findMovieQuality = (
       id: findMovie?.id as number,
       quality: findMovie?.qualities[0] as MovieQuality,
     };
-  } else return {} as ActiveMovie;
+  } else
+    return {
+      title: movieDetail.serials_parts[0]?.title as string,
+      id: movieDetail.serials_parts[0]?.id as number,
+      quality: movieDetail.serials_parts[0]?.qualities[0] as MovieQuality,
+    };
 };
 
 const Movie: FC<Props> = ({ movieDetail, movieKey }) => {
@@ -57,6 +62,8 @@ const Movie: FC<Props> = ({ movieDetail, movieKey }) => {
   const [playMovie, setPlayMovie] = useState<ActiveMovie>(
     findMovieQuality(movieDetail, params)
   );
+
+  console.log(playMovie);
 
   return (
     <Box className="movie" sx={{ pb: "20px" }}>

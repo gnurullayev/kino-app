@@ -14,6 +14,7 @@ export interface IMovie {
   movie_part_number: number;
   description: string;
   type: string;
+  series_id: number;
   poster_url: string;
   video_url: string;
   genre: string;
@@ -53,4 +54,11 @@ export interface MoviesDetail {
   qualities: MovieQuality[] | [];
   other_movies: IMovie[];
   serials_parts: ISeriesPart[] | [];
+}
+
+export interface ISearchMovies {
+  data: IMovie[];
+  current_page: number;
+  per_page: number;
+  total: number;
 }

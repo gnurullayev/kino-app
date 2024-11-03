@@ -39,4 +39,9 @@ export const API = {
     axiosInstance
       .get(`movie-detail/${id}/${type}`)
       .then((res) => res.data?.data),
+
+  moviesSearch: (params: { query: string; page?: number }) =>
+    axiosInstance
+      .get(`movies-search`, { params })
+      .then((res) => res.data?.data),
 };

@@ -1,9 +1,7 @@
 import React, { FC, useState } from "react";
 import { Box } from "@mui/material";
 import { MoviesHead, MoviesList, PaginationComponent } from "@/components";
-import { IHome } from "@/interfaces/home";
 import { API } from "@/services/api";
-import { GetServerSideProps } from "next";
 import { IMoviesByCategory } from "@/interfaces/movie";
 import { useMutation } from "@tanstack/react-query";
 
@@ -35,7 +33,6 @@ const Movies: FC<Props> = ({ moviesByCategory, id, movieKey }) => {
         total: res.movies_data.total,
         currentPage: res.movies_data.current_page,
       });
-      console.log(res);
     },
   });
 

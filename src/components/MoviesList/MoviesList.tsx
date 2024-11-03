@@ -4,6 +4,7 @@ import FilmCard from "../FilmCard/FilmCard";
 import style from "./moviesList.module.scss";
 import { IMovie } from "@/interfaces/movie";
 import { FC } from "react";
+import MovieType from "@/enums/movie";
 
 interface Props {
   data: IMovie[];
@@ -21,7 +22,11 @@ const MoviesList: FC<Props> = ({ data }) => {
       {data.map((item) => (
         <Grid key={item.id} xs={12} sm={4} md={3} component="li">
           <Box className={style.movies_item}>
-            <FilmCard {...item} type={item.type} />
+            <FilmCard
+              {...item}
+              type={item.type}
+              id={item.type !== MovieType.MOVIE ? item.series_id : item.id}
+            />
           </Box>
         </Grid>
       ))}
