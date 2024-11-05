@@ -11,8 +11,6 @@ interface Props {
 }
 
 const Home: FC<Props> = ({ data }) => {
-  console.log(data);
-
   return (
     <>
       <HomeHero data={data.top_movies} />

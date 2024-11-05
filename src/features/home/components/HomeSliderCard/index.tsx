@@ -8,19 +8,22 @@ import {
   TitleContext,
   ValueType,
 } from "@/context/TitleContext/TitleContext";
+import { route } from "@/utils";
+import Routes from "@/enums/routes";
 
-const HomeSliderCard = ({ image, name, id }: IHomeSliderCard) => {
+const HomeSliderCard = ({ image, name, id, type }: IHomeSliderCard) => {
   const router = useRouter();
   const { changeTitle } = useContext<ValueType>(TitleContext);
   const handleClick = (data: ITitleContextData): void => {
     changeTitle(data);
   };
+
   return (
     <Card
       sx={{ maxWidth: "100%", cursor: "pointer" }}
       className="home-slider-card"
       onClick={() => {
-        router.push(`/movie/${id}`);
+        router.push(route(Routes.MOVIE, { id, key: type }));
         handleClick({ title: name, url: id });
       }}
     >

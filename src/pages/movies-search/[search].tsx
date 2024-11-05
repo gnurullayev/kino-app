@@ -1,6 +1,11 @@
 import React, { FC, useState } from "react";
 import { Box } from "@mui/material";
-import { MoviesHead, MoviesList, PaginationComponent } from "@/components";
+import {
+  MetaData,
+  MoviesHead,
+  MoviesList,
+  PaginationComponent,
+} from "@/components";
 import { API } from "@/services/api";
 import { IMoviesByCategory, ISearchMovies } from "@/interfaces/movie";
 import { useMutation } from "@tanstack/react-query";
@@ -20,8 +25,6 @@ const MoviesSearch: FC<Props> = ({ searchMovies, search }) => {
     total: searchMovies.total,
   });
 
-  // console.log(search, moviesList, paginate, searchMovies);
-
   const { mutate, isPending } = useMutation({
     mutationFn: async (data: any) =>
       await API.moviesSearch({
@@ -35,7 +38,6 @@ const MoviesSearch: FC<Props> = ({ searchMovies, search }) => {
         total: res.total,
         currentPage: res.current_page,
       });
-      console.log(res);
     },
   });
 
@@ -49,6 +51,7 @@ const MoviesSearch: FC<Props> = ({ searchMovies, search }) => {
       <Box component="section" className="movies_hero">
         <Box className="movies_hero__container container">
           <Box className="movies_hero__inner">
+            <MetaData title={search} />
             <MoviesHead title={search} />
             <MovieSearch searchValue={search ? search : ""} mutate={mutate} />
             <MoviesList data={moviesList} />
@@ -70,7 +73,6 @@ export const getServerSideProps = async (context: any) => {
   const data = context;
   const search = data.query.search;
   const page = data.query.page;
-  console.log(context.query);
 
   const searchMovies: IMoviesByCategory = await API.moviesSearch({
     query: search,

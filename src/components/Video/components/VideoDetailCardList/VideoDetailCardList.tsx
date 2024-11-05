@@ -2,6 +2,7 @@ import { Box } from "@mui/material";
 import React, { FC } from "react";
 import { VideoDetailCard } from "../";
 import { IMovie } from "@/interfaces/movie";
+import MovieType from "@/enums/movie";
 
 interface Props {
   movies: IMovie[];
@@ -17,6 +18,7 @@ const VideoDetailCardList: FC<Props> = ({ movies }) => {
             image={el.poster_url}
             id={el.id}
             year={new Date(el.release_date).getFullYear()}
+            type={el.type ? el.type : MovieType.SERIES}
           />
         </Box>
       ))}

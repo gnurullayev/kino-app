@@ -17,6 +17,7 @@ import BreadcrumbsComponent from "./Breadcrumbs/Breadcrumbs";
 import MoviesList from "./MoviesList/MoviesList";
 import MoviesHead from "./MoviesHead/MoviesHead";
 import PaginationComponent from "./Pagination/Pagination";
+import MetaData from "./MetaData";
 
 Layout;
 export {
@@ -37,4 +38,5 @@ export {
   MoviesList,
   MoviesHead,
   PaginationComponent,
+  MetaData,
 };

@@ -10,31 +10,19 @@ import {
   Drawer,
   Typography,
 } from "@mui/material";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
-import MailIcon from "@mui/icons-material/Mail";
-import { ISidebarData } from "./sidebar.props";
+import VideoLibraryIcon from "@mui/icons-material/VideoLibrary";
+import PlayCircleIcon from "@mui/icons-material/PlayCircle";
 import { useRouter } from "next/router";
+import { ISelectData } from "@/interfaces";
+import { route } from "@/utils";
+import Routes from "@/enums/routes";
 interface ISidebar {
   setActive: (a: boolean) => void;
   active: boolean;
+  data: ISelectData[];
 }
-const SidebarData: ISidebarData[] = [
-  { label: "Bosh sahifa", id: 1, path: "/" },
-  { label: "Movie", id: 2, path: "/movie/1" },
-  { label: "Movies", id: 3, path: "/movies/1" },
-  { label: "Multfilimlar", id: 4, path: "/multfilm" },
-  { label: "Consertlar", id: 5, path: "/konsert" },
-];
 
-const NewData: ISidebarData[] = [
-  { label: "Venzday", id: 1, path: "/" },
-  { label: "Uch opa singil", id: 2, path: "/filimlar" },
-  { label: "Ajal o'yini", id: 3, path: "/serialar" },
-  { label: "Nomus", id: 4, path: "/multfilm" },
-  { label: "Hukumdor usmon", id: 5, path: "/konsert" },
-];
-
-export const Sidebar = ({ setActive, active }: ISidebar) => {
+export const Sidebar = ({ setActive, active, data }: ISidebar) => {
   const router = useRouter();
   const toggleDrawer =
     (open: boolean) => (event: React.KeyboardEvent | React.MouseEvent) => {
@@ -65,43 +53,42 @@ export const Sidebar = ({ setActive, active }: ISidebar) => {
           Kino
         </Typography>
       </Typography>
+
       <List>
-        {SidebarData.map((text, index) => (
-          <ListItem
-            key={text.id}
-            disablePadding
-            onClick={() => router.push(text.path)}
-          >
-            <ListItemButton>
-              <ListItemIcon>
-                {index % 2 === 0 ? (
-                  <InboxIcon color={"secondary"} />
-                ) : (
-                  <MailIcon color={"secondary"} />
-                )}
-              </ListItemIcon>
-              <ListItemText primary={text.label} />
-            </ListItemButton>
-          </ListItem>
-        ))}
+        <ListItem disablePadding onClick={() => router.push(Routes.HOME)}>
+          <ListItemButton>
+            <ListItemIcon>
+              <VideoLibraryIcon color={"secondary"} />
+            </ListItemIcon>
+            <ListItemText primary={"Bosh sahifa"} />
+          </ListItemButton>
+        </ListItem>
+
+        {data &&
+          data.map((item: ISelectData, idx) => (
+            <ListItem
+              key={item.value}
+              disablePadding
+              onClick={() =>
+                router.push(
+                  route(Routes.MOVIES, { id: item.value, key: item.type })
+                )
+              }
+            >
+              <ListItemButton>
+                <ListItemIcon>
+                  {idx % 2 === 0 ? (
+                    <PlayCircleIcon color={"secondary"} />
+                  ) : (
+                    <VideoLibraryIcon color={"secondary"} />
+                  )}
+                </ListItemIcon>
+                <ListItemText primary={item.label} />
+              </ListItemButton>
+            </ListItem>
+          ))}
       </List>
       <Divider />
-      <List>
-        {NewData.map((text, index) => (
-          <ListItem key={text.id} disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                {index % 2 === 0 ? (
-                  <InboxIcon color={"secondary"} />
-                ) : (
-                  <MailIcon color={"secondary"} />
-                )}
-              </ListItemIcon>
-              <ListItemText primary={text.label} />
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List>
     </Box>
   );
 

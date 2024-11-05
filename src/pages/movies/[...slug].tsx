@@ -1,6 +1,11 @@
 import React, { FC, useState } from "react";
 import { Box } from "@mui/material";
-import { MoviesHead, MoviesList, PaginationComponent } from "@/components";
+import {
+  MetaData,
+  MoviesHead,
+  MoviesList,
+  PaginationComponent,
+} from "@/components";
 import { API } from "@/services/api";
 import { IMoviesByCategory } from "@/interfaces/movie";
 import { useMutation } from "@tanstack/react-query";
@@ -37,7 +42,6 @@ const Movies: FC<Props> = ({ moviesByCategory, id, movieKey }) => {
   });
 
   const changePaginate = (page: any) => {
-    console.log("page", page);
     mutate({ page });
   };
 
@@ -46,6 +50,11 @@ const Movies: FC<Props> = ({ moviesByCategory, id, movieKey }) => {
       <Box component="section" className="movies_hero">
         <Box className="movies_hero__container container">
           <Box className="movies_hero__inner">
+            <MetaData
+              description={moviesByCategory.description}
+              keywords={moviesByCategory.short_content}
+              title={moviesByCategory.name}
+            />
             <MoviesHead title={moviesByCategory.name} />
             <MoviesList data={moviesList} />
             <PaginationComponent

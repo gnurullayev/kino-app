@@ -127,6 +127,7 @@ const VideoBottom: FC<Props> = ({ movie, playMovie, setPlayMovie }) => {
               >
                 {movie.serials_parts.map((item) => (
                   <option
+                    key={item.id}
                     value={item.id}
                     style={{ color: "#000", fontSize: "20px" }}
                   >

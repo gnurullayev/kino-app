@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FC } from "react";
 import { Box, Typography } from "@mui/material";
 
 // Import Swiper React components
@@ -16,30 +16,17 @@ import { useRouter } from "next/router";
 import Routes from "@/enums/routes";
 import MovieType from "@/enums/movie";
 
-const Nav = () => {
-  const router = useRouter();
-  const {data} = useQuery({
-    queryKey:['all-categories'],
-    queryFn:async () => await API.moviesCategories()
-  })
+interface Props {
+  data: ISelectData[];
+}
 
-  console.log(data);
-  
-  const navData: INavData[] = [
-    { label: "Detektiv", id: 1, path: "/" },
-    { label: "Drama", id: 2, path: "/" },
-    { label: "Fontastik", id: 3, path: "/" },
-    { label: "Fontaziya", id: 4, path: "/" },
-    { label: "Harbiy", id: 5, path: "/" },
-    { label: "Jangari", id: 6, path: "/" },
-    { label: "Komediya", id: 7, path: "/" },
-    { label: "Kriminal", id: 8, path: "/" },
-    { label: "Melodrama", id: 9, path: "/" },
-    { label: "Multfilmlar", id: 10, path: "/" },
-    { label: "Sarguzashtlar", id: 11, path: "/" },
-    { label: "Tarixiy", id: 12, path: "/" },
-    { label: "Ujas", id: 13, path: "/" },
-  ];
+const Nav: FC<Props> = ({ data }) => {
+  const router = useRouter();
+  // const { data } = useQuery({
+  //   queryKey: ["all-categories"],
+  //   queryFn: async () => await API.moviesCategories(),
+  // });
+
   return (
     <Box className="nav" sx={{ p: "15px 0" }}>
       <Box className="container">
@@ -74,22 +61,23 @@ const Nav = () => {
             }}
             className="mySwiper navList"
           >
-            {
-
-              data &&
-              data.map((item:ISelectData) => (
+            {data &&
+              data.map((item: ISelectData) => (
                 <SwiperSlide key={item.value} className="nav-item">
                   <Typography
                     className="nav_link"
                     component="p"
                     sx={{ cursor: "pointer" }}
-                    onClick={() => router.push(route(Routes.MOVIES, { id: item.value, key: item.type }))}
+                    onClick={() =>
+                      router.push(
+                        route(Routes.MOVIES, { id: item.value, key: item.type })
+                      )
+                    }
                   >
                     {item.label}
                   </Typography>
                 </SwiperSlide>
-              ))
-            }
+              ))}
           </Swiper>
         </Box>
       </Box>

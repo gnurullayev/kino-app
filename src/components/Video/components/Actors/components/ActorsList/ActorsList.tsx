@@ -8,8 +8,6 @@ import "swiper/css";
 import "swiper/css/pagination";
 
 import { Navigation } from "swiper";
-import { heroData } from "@/features/home/components/HomeHeroCarusel/data";
-import HomeSliderCard from "@/features/home/components/HomeSliderCard";
 
 const ActorsList = () => {
   return (
@@ -27,7 +25,7 @@ const ActorsList = () => {
         }}
         className="mySwiper home-hero-carousel"
       >
-        {heroData.map((item) => (
+        {/* {heroData.map((item) => (
           <SwiperSlide
             key={item.id}
             className="nav-item"
@@ -35,7 +33,7 @@ const ActorsList = () => {
           >
             <ActorsListItem name={item.title} image={item.image} id={item.id} />
           </SwiperSlide>
-        ))}
+        ))} */}
       </Swiper>
     </Box>
   );

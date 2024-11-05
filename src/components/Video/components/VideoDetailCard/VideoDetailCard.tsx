@@ -8,11 +8,14 @@ import {
   TitleContext,
   ValueType,
 } from "@/context/TitleContext/TitleContext";
+import Routes from "@/enums/routes";
+import { route } from "@/utils";
 interface IProps {
   id: string | number;
   name: string;
   year: string | number;
   image: string | StaticImageData;
+  type: string;
 }
 
 const timeStile = {
@@ -25,7 +28,7 @@ const timeStile = {
   fontSize: "12px",
 };
 
-const VideoDetailCard = ({ id, image, name, year }: IProps) => {
+const VideoDetailCard = ({ id, image, name, year, type }: IProps) => {
   const router = useRouter();
   const { changeTitle } = useContext<ValueType>(TitleContext);
   const handleClick = (data: ITitleContextData): void => {
@@ -35,7 +38,7 @@ const VideoDetailCard = ({ id, image, name, year }: IProps) => {
     <Box
       className={style.video_detail_card}
       onClick={() => {
-        router.push(`/movie/${id}`);
+        router.push(route(Routes.MOVIE, { id, key: type }));
         handleClick({ title: name, url: id });
       }}
     >

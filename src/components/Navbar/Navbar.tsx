@@ -42,14 +42,15 @@ const Navbar = ({ setActive }: INavbar) => {
                 variant="h6"
                 component="p"
                 sx={{ flexGrow: 1, cursor: "pointer" }}
+                onClick={() => router.push(route(Routes.HOME))}
               >
-                Muz
+                Best
                 <Typography
                   variant="h6"
                   component="span"
                   className="header-logo"
                 >
-                  Kino
+                  Media
                 </Typography>
               </Typography>
               <Button

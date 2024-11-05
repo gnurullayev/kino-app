@@ -11,7 +11,6 @@ import "swiper/css/pagination";
 
 import { Navigation } from "swiper";
 
-import { heroData } from "./data";
 import HomeSliderCard from "../HomeSliderCard";
 import { IMovie } from "@/interfaces/movie";
 import { ISeries } from "@/interfaces/series";
@@ -57,6 +56,7 @@ const HomeHeroCarousel: FC<Props> = ({ data }) => {
               name={item.title}
               image={item.poster_url}
               id={item.id}
+              type={item.type}
             />
           </SwiperSlide>
         ))}

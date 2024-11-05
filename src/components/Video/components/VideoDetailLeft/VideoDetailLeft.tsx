@@ -27,7 +27,7 @@ const VideoDetailLeft: FC<Props> = ({ movie, playMovie, setPlayMovie }) => {
         playMovie={playMovie}
         setPlayMovie={setPlayMovie}
       />
-      <Actors />
+      {/* <Actors /> */}
       <VideoInfo movie={movie} />
     </Box>
   );

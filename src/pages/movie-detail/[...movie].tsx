@@ -14,6 +14,7 @@ import {
   VideoDetailLeft,
   VideoDetailCardList,
   BreadcrumbsComponent,
+  MetaData,
 } from "src/components";
 interface Props {
   movieDetail: MoviesDetail;
@@ -63,12 +64,16 @@ const Movie: FC<Props> = ({ movieDetail, movieKey }) => {
     findMovieQuality(movieDetail, params)
   );
 
-  console.log(playMovie);
-
   return (
     <Box className="movie" sx={{ pb: "20px" }}>
       <Box className="container">
         <Box className="movie-inner">
+          <MetaData
+            description={movieDetail.description}
+            keywords={movieDetail.short_content + " " + movieDetail.genre}
+            title={movieDetail.title}
+          />
+
           <BreadcrumbsComponent label={movieDetail.title} />
 
           <Grid

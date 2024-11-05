@@ -11,7 +11,7 @@ interface Props {
   title: string;
   short_content: string;
   poster_url: string;
-  type: string;
+  type?: string;
 }
 
 const FilmCard: FC<Props> = ({ poster_url, title, id, type }) => {

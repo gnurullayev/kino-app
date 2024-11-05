@@ -13,8 +13,6 @@ interface Props {
 const VideoInfo: FC<Props> = ({ movie }) => {
   const [more, setMore] = useState<boolean>(false);
 
-  console.log(movie);
-
   return (
     <Box className={`${style.video_info} ${more ? style.active : ""}`}>
       <VideoInfoCard movie={movie} />
