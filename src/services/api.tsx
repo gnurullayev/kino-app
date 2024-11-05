@@ -44,4 +44,10 @@ export const API = {
     axiosInstance
       .get(`movies-search`, { params })
       .then((res) => res.data?.data),
+
+  //Movies
+  moviesCategories: () =>
+    axiosInstance
+      .get("all-categories")
+      .then((res) => res.data?.data),
 };

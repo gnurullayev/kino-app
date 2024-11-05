@@ -3,6 +3,7 @@ import { ReactNode } from "react";
 export interface ISelectData {
   value: string;
   label: string;
+  type:string
 }
 
 export interface IIconComponent {

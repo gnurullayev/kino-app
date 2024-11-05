@@ -8,8 +8,23 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import { INavData } from "./nav.props";
+import { useQuery } from "@tanstack/react-query";
+import { API } from "@/services/api";
+import { ISelectData } from "@/interfaces";
+import { route } from "@/utils";
+import { useRouter } from "next/router";
+import Routes from "@/enums/routes";
+import MovieType from "@/enums/movie";
 
 const Nav = () => {
+  const router = useRouter();
+  const {data} = useQuery({
+    queryKey:['all-categories'],
+    queryFn:async () => await API.moviesCategories()
+  })
+
+  console.log(data);
+  
   const navData: INavData[] = [
     { label: "Detektiv", id: 1, path: "/" },
     { label: "Drama", id: 2, path: "/" },
@@ -59,17 +74,22 @@ const Nav = () => {
             }}
             className="mySwiper navList"
           >
-            {navData.map((item) => (
-              <SwiperSlide key={item.id} className="nav-item">
-                <Typography
-                  className="nav_link"
-                  component="p"
-                  sx={{ cursor: "pointer" }}
-                >
-                  {item.label}
-                </Typography>
-              </SwiperSlide>
-            ))}
+            {
+
+              data &&
+              data.map((item:ISelectData) => (
+                <SwiperSlide key={item.value} className="nav-item">
+                  <Typography
+                    className="nav_link"
+                    component="p"
+                    sx={{ cursor: "pointer" }}
+                    onClick={() => router.push(route(Routes.MOVIES, { id: item.value, key: item.type }))}
+                  >
+                    {item.label}
+                  </Typography>
+                </SwiperSlide>
+              ))
+            }
           </Swiper>
         </Box>
       </Box>
