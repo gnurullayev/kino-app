@@ -17,6 +17,9 @@ const nextConfig = {
         hostname: "127.0.0.1",
       },
       {
+        hostname: "157.230.91.245",
+      },
+      {
         hostname: "localhost",
       },
       {
