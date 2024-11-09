@@ -48,7 +48,7 @@ const Movies: FC<Props> = ({ moviesByCategory, id, movieKey }) => {
       setPaginate({
         currentPage: moviesByCategory.movies_data.current_page,
         total: moviesByCategory.movies_data.total,
-      });
+        });
     }
   }, [moviesByCategory.movies_data]);
 

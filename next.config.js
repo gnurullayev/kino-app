@@ -20,6 +20,9 @@ const nextConfig = {
         hostname: "157.230.91.245",
       },
       {
+        hostname: "topmovie.uz",
+      },
+      {
         hostname: "localhost",
       },
       {
