@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
 import { Box } from "@mui/material";
 import {
   MetaData,
@@ -41,6 +41,17 @@ const Movies: FC<Props> = ({ moviesByCategory, id, movieKey }) => {
     },
   });
 
+  useEffect(() => {
+    if (moviesByCategory.movies_data) {
+      setMoviesList(moviesByCategory.movies_data.data);
+
+      setPaginate({
+        currentPage: moviesByCategory.movies_data.current_page,
+        total: moviesByCategory.movies_data.total,
+      });
+    }
+  }, [moviesByCategory.movies_data]);
+
   const changePaginate = (page: any) => {
     mutate({ page });
   };
@@ -72,12 +83,20 @@ const Movies: FC<Props> = ({ moviesByCategory, id, movieKey }) => {
 export default Movies;
 
 export const getServerSideProps = async (context: any) => {
-  const data = context;
-  const id = data.query.slug[0];
-  const key = data.query.slug[1];
+  try {
+    const data = context;
+    const id = data.query.slug[0];
+    const key = data.query.slug[1];
 
-  const moviesByCategory: IMoviesByCategory = await API.moviesByCategory(id, {
-    key,
-  });
-  return { props: { moviesByCategory, id, movieKey: key } };
+    const moviesByCategory: IMoviesByCategory = await API.moviesByCategory(id, {
+      key,
+    });
+
+    return { props: { moviesByCategory, id, movieKey: key } };
+  } catch (error) {
+    console.error("Failed to fetch movies by category:", error);
+
+    // Return an empty or error state as needed
+    return { props: { moviesByCategory: null, id: null, movieKey: null } };
+  }
 };

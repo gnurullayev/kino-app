@@ -54,7 +54,9 @@ const VideoInfoCard: FC<Props> = ({ movie }) => {
             component="b"
             className={style.video_info_card__content_bold}
           >
-            {movie.release_date}
+            {`${formatDate(movie.release_date).year}.${
+              formatDate(movie.release_date).day
+            }.${formatDate(movie.release_date).month}`}
           </Typography>
         </Box>
         <Box component="li" className={style.video_info_card__content_item}>
@@ -87,24 +89,26 @@ const VideoInfoCard: FC<Props> = ({ movie }) => {
           </Typography>
         </Box>
 
-        <Box component="li" className={style.video_info_card__content_item}>
-          <Typography
-            component="span"
-            className={style.video_info_card__content_span}
-          >
-            Davomiyligi:{" "}
-          </Typography>
-          <Typography
-            component="b"
-            className={style.video_info_card__content_bold}
-          >
-            {`${formatTime(movie.duration).hours} soat ${
-              formatTime(movie.duration).mins > 0
-                ? formatTime(movie.duration).mins + " minut"
-                : ""
-            } `}
-          </Typography>
-        </Box>
+        {movie.duration && (
+          <Box component="li" className={style.video_info_card__content_item}>
+            <Typography
+              component="span"
+              className={style.video_info_card__content_span}
+            >
+              Davomiyligi:{" "}
+            </Typography>
+            <Typography
+              component="b"
+              className={style.video_info_card__content_bold}
+            >
+              {`${formatTime(movie.duration).hours} soat ${
+                formatTime(movie.duration).mins > 0
+                  ? formatTime(movie.duration).mins + " minut"
+                  : ""
+              } `}
+            </Typography>
+          </Box>
+        )}
 
         <Box component="li" className={style.video_info_card__content_item}>
           <Typography
@@ -136,9 +140,9 @@ const VideoInfoCard: FC<Props> = ({ movie }) => {
               component="span"
               className={style.video_info_card__content_link}
             >
-              Jangari ,
+              {movie.genre}
             </Typography>
-            <Typography
+            {/* <Typography
               component="span"
               className={style.video_info_card__content_link}
             >
@@ -151,7 +155,7 @@ const VideoInfoCard: FC<Props> = ({ movie }) => {
             >
               {" "}
               Tarjima kinolar
-            </Typography>
+            </Typography> */}
           </Typography>
         </Box>
 

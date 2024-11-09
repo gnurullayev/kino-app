@@ -44,7 +44,7 @@ const VideoBottom: FC<Props> = ({ movie, playMovie, setPlayMovie }) => {
   return (
     <Box className="movie__video_bottom" sx={{ mb: "15px" }}>
       <Typography variant="h4" component="h4">
-        Yengilmas jamoa va ajdar - Uzbek Tilida
+        {playMovie.title}
       </Typography>
 
       {/* <VideoBottomButtons /> */}

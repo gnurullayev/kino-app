@@ -15,12 +15,15 @@ const Home: FC<Props> = ({ data }) => {
     <>
       <HomeHero data={data.top_movies} />
 
-      <CategorySection
-        title={data.series.name}
-        subtitle={""}
-        list={data.series.list}
-        url={route(Routes.MOVIES, { id: data.series.id, key: Movie.SERIES })}
-      />
+      {data.series && (
+        <CategorySection
+          title={data.series.name}
+          subtitle={""}
+          list={data.series.list}
+          url={route(Routes.MOVIES, { id: data.series.id, key: Movie.SERIES })}
+        />
+      )}
+
       {data.categories.length > 0 &&
         data.categories.map((category) => (
           <CategorySection
