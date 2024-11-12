@@ -1,6 +1,7 @@
 import Axios from "axios";
 
-export const BASE_URL = "https://topmovie.uz";
+// export const BASE_URL = "https://topmovie.uz";
+export const BASE_URL = "https://topmovie.me";
 
 export const axiosInstance = Axios.create({
   baseURL: BASE_URL + "/api/v1/",
