@@ -26,6 +26,7 @@ export interface ActiveMovie {
   title: string;
   id: number;
   quality: MovieQuality;
+  video_url: string | undefined;
 }
 
 const findMovieQuality = (
@@ -37,6 +38,7 @@ const findMovieQuality = (
       title: movieDetail.title as string,
       id: movieDetail.id as number,
       quality: movieDetail.qualities[0] as MovieQuality,
+      video_url: movieDetail.video_url,
     };
   else if (params.part) {
     const findMovie = movieDetail.serials_parts
@@ -45,21 +47,33 @@ const findMovieQuality = (
         )
       : movieDetail.serials_parts[0];
 
+    console.log("findMovie", findMovie);
+
     return {
       title: findMovie?.title as string,
       id: findMovie?.id as number,
       quality: findMovie?.qualities[0] as MovieQuality,
+      video_url: findMovie?.video_url,
     };
   } else
     return {
       title: movieDetail.serials_parts[0]?.title as string,
       id: movieDetail.serials_parts[0]?.id as number,
       quality: movieDetail.serials_parts[0]?.qualities[0] as MovieQuality,
+      video_url: movieDetail.serials_parts[0].video_url,
     };
 };
 
 const Movie: FC<Props> = ({ movieDetail, movieKey }) => {
-  const { params } = useQuery();
+  // const { params } = useQuery();
+  const router = useRouter();
+  const { query }: any = router;
+  const params = {
+    type: query.movie[1],
+    id: query.movie[0],
+    part: query.part,
+  };
+
   const [playMovie, setPlayMovie] = useState<ActiveMovie>(
     movieDetail ? findMovieQuality(movieDetail, params) : ({} as ActiveMovie)
   );
@@ -71,6 +85,8 @@ const Movie: FC<Props> = ({ movieDetail, movieKey }) => {
   }, [movieDetail]);
 
   if (!movieDetail) return null;
+
+  console.log("query", query, movieDetail, playMovie);
 
   return (
     <Box className="movie" sx={{ pb: "20px" }}>

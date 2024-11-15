@@ -13,12 +13,11 @@ interface Props {
 }
 
 const VideoDetailLeft: FC<Props> = ({ movie, playMovie, setPlayMovie }) => {
-  console.log(playMovie);
-
   return (
     <Box className="movie-inner__start">
       <Box className="move__video" sx={{ width: "100%" }}>
-        <Video path={`${BASE_URL}/storage/${playMovie?.quality?.video_url}`} />
+        <Video path={playMovie.video_url} />
+        {/* path={`${BASE_URL}/storage/${playMovie?.quality?.video_url}`} /> */}
       </Box>
 
       <VideoBottom

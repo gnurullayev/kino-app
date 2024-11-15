@@ -44,13 +44,13 @@ const Navbar = ({ setActive }: INavbar) => {
                 sx={{ flexGrow: 1, cursor: "pointer" }}
                 onClick={() => router.push(route(Routes.HOME))}
               >
-                Best
+                Top
                 <Typography
                   variant="h6"
                   component="span"
                   className="header-logo"
                 >
-                  Media
+                  Movie
                 </Typography>
               </Typography>
               <Button

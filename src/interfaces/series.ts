@@ -19,4 +19,5 @@ export interface ISeriesPart {
   id: number;
   title: string;
   qualities: MovieQuality[];
+  video_url: string;
 }

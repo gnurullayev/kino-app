@@ -48,9 +48,9 @@ export const Sidebar = ({ setActive, active, data }: ISidebar) => {
         sx={{ flexGrow: 1, cursor: "pointer", pl: "16px" }}
         onClick={() => router.push("/")}
       >
-        Muz
+        Top
         <Typography variant="h6" component="span" className="header-logo">
-          Kino
+          Movie
         </Typography>
       </Typography>
 

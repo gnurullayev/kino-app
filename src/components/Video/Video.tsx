@@ -3,7 +3,7 @@ import ReactPlayer from "react-player";
 import css from "./video.module.scss";
 
 interface Props {
-  path: string;
+  path: string | undefined;
 }
 
 const Video: FC<Props> = ({ path = "/video.mp4" }) => {

@@ -38,6 +38,7 @@ const VideoBottom: FC<Props> = ({ movie, playMovie, setPlayMovie }) => {
       id: findMovie?.id as number,
       title: findMovie?.title as string,
       quality: findMovie?.qualities[0] as MovieQuality,
+      video_url: findMovie?.video_url,
     });
   };
 
