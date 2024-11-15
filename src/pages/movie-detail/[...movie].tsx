@@ -47,8 +47,6 @@ const findMovieQuality = (
         )
       : movieDetail.serials_parts[0];
 
-    console.log("findMovie", findMovie);
-
     return {
       title: findMovie?.title as string,
       id: findMovie?.id as number,
@@ -85,8 +83,6 @@ const Movie: FC<Props> = ({ movieDetail, movieKey }) => {
   }, [movieDetail]);
 
   if (!movieDetail) return null;
-
-  console.log("query", query, movieDetail, playMovie);
 
   return (
     <Box className="movie" sx={{ pb: "20px" }}>
