@@ -17,6 +17,7 @@ import { ActiveMovie } from "@/pages/movie-detail/[...movie]";
 import { MovieQuality } from "@/interfaces/quality";
 import { useQuery } from "@/hooks/use-query";
 import VisibilityIcon from "@mui/icons-material/Visibility";
+import MetaData from "../MetaData";
 
 interface Props {
   movie: MoviesDetail;
@@ -47,7 +48,7 @@ const VideoBottom: FC<Props> = ({ movie, playMovie, setPlayMovie }) => {
       <Typography variant="h4" component="h4">
         {playMovie.title}
       </Typography>
-
+      <MetaData title={playMovie.title} />
       {/* <VideoBottomButtons /> */}
       <Box
         className="movie__video_btn--group"
