@@ -80,7 +80,9 @@ export const getServerSideProps = async (context: any) => {
       page: page ? page : 1,
     });
 
-    return { props: { searchMovies, search } };
+    return {
+      props: { searchMovies, search: search?.includes("search") ? "" : search },
+    };
   } catch (error) {
     console.error("Failed to fetch movies:", error);
 

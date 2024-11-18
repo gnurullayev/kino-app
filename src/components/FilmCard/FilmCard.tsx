@@ -1,7 +1,6 @@
 import React, { FC } from "react";
 import { Box, Typography, Card, CardContent } from "@mui/material";
 import Image from "next/image";
-import { IFilmCard } from "./filmCard.props";
 import { useRouter } from "next/router";
 import { route } from "@/utils";
 import Routes from "@/enums/routes";

@@ -59,7 +59,7 @@ const Navbar = ({ setActive }: INavbar) => {
                   router.push(route(Routes.SEARCH_MOVIES, { search: "search" }))
                 }
               >
-                Search
+                Qidiruv
               </Button>
             </Toolbar>
           </Box>
