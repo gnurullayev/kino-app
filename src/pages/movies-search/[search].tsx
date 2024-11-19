@@ -70,14 +70,23 @@ const MoviesSearch: FC<Props> = ({ searchMovies, search }) => {
 export default MoviesSearch;
 
 export const getServerSideProps = async (context: any) => {
-  const data = context;
-  const search = data.query.search;
-  const page = data.query.page;
+  try {
+    const data = context;
+    const search = data.query.search;
+    const page = data.query.page;
 
-  const searchMovies: IMoviesByCategory = await API.moviesSearch({
-    query: search,
-    page: page ? page : 1,
-  });
+    const searchMovies: IMoviesByCategory = await API.moviesSearch({
+      query: search,
+      page: page ? page : 1,
+    });
 
-  return { props: { searchMovies, search } };
+    return {
+      props: { searchMovies, search: search?.includes("search") ? "" : search },
+    };
+  } catch (error) {
+    console.error("Failed to fetch movies:", error);
+
+    // Return an empty or error state as needed
+    return { props: { searchMovies: null, search: "" } };
+  }
 };

@@ -8,6 +8,8 @@ import { MetaData } from "@/components";
 export default function HomePage({
   home,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) {
+  if (!home) return null;
+
   return (
     <Box className="home" sx={{ p: "0px 0" }}>
       <MetaData />
@@ -17,9 +19,16 @@ export default function HomePage({
 }
 
 export const getServerSideProps = (async () => {
-  // Fetch data from external API
-  const home: IHome = await API.getHome();
+  try {
+    // Fetch data from external API
+    const home: IHome = await API.getHome();
 
-  // Pass data to the page via props
-  return { props: { home } };
-}) satisfies GetServerSideProps<{ home: IHome }>;
+    // Pass data to the page via props
+    return { props: { home } };
+  } catch (error) {
+    console.error("Failed to fetch home data:", error);
+
+    // Return an empty object or handle the error as needed
+    return { props: { home: null } };
+  }
+}) satisfies GetServerSideProps<{ home: IHome | null }>;

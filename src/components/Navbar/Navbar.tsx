@@ -44,13 +44,13 @@ const Navbar = ({ setActive }: INavbar) => {
                 sx={{ flexGrow: 1, cursor: "pointer" }}
                 onClick={() => router.push(route(Routes.HOME))}
               >
-                Best
+                Top
                 <Typography
                   variant="h6"
                   component="span"
                   className="header-logo"
                 >
-                  Media
+                  Movie
                 </Typography>
               </Typography>
               <Button
@@ -59,7 +59,7 @@ const Navbar = ({ setActive }: INavbar) => {
                   router.push(route(Routes.SEARCH_MOVIES, { search: "search" }))
                 }
               >
-                Search
+                Qidiruv
               </Button>
             </Toolbar>
           </Box>

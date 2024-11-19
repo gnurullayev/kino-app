@@ -17,6 +17,7 @@ import { ActiveMovie } from "@/pages/movie-detail/[...movie]";
 import { MovieQuality } from "@/interfaces/quality";
 import { useQuery } from "@/hooks/use-query";
 import VisibilityIcon from "@mui/icons-material/Visibility";
+import MetaData from "../MetaData";
 
 interface Props {
   movie: MoviesDetail;
@@ -38,15 +39,16 @@ const VideoBottom: FC<Props> = ({ movie, playMovie, setPlayMovie }) => {
       id: findMovie?.id as number,
       title: findMovie?.title as string,
       quality: findMovie?.qualities[0] as MovieQuality,
+      video_url: findMovie?.video_url,
     });
   };
 
   return (
     <Box className="movie__video_bottom" sx={{ mb: "15px" }}>
       <Typography variant="h4" component="h4">
-        Yengilmas jamoa va ajdar - Uzbek Tilida
+        {playMovie.title}
       </Typography>
-
+      <MetaData title={playMovie.title} />
       {/* <VideoBottomButtons /> */}
       <Box
         className="movie__video_btn--group"

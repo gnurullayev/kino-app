@@ -1,5 +1,6 @@
 .video_detail_card {
-  display: flex;
+  display: grid;
+  grid-template-columns: 260px 1fr;
   gap: 15px;
   cursor: pointer;
 
@@ -46,7 +47,7 @@
     flex-direction: column;
     gap: 10px;
     width: 100%;
-    max-width: 350px;
+    // max-width: 350px;
     margin: 0 auto;
     border-radius: 5px;
     overflow: hidden;
@@ -64,5 +65,12 @@
         height: 100%;
       }
     }
+  }
+}
+
+@media (max-width: "440px") {
+  .video_detail_card {
+    grid-template-columns: 1fr;
+    max-width: 350px;
   }
 }

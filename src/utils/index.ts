@@ -9,9 +9,12 @@ export function route(route: string, params: any = {}): string {
 }
 
 export const formatDate = (date: string) => {
-  const arr = date.split("-");
+  const newDate = new Date(date);
+  const year = String(newDate.getFullYear()).padStart(2, "0");
+  const day = String(newDate.getUTCDate()).padStart(2, "0");
+  const month = String(newDate.getMonth() + 1).padStart(2, "0");
 
-  return { year: arr[0], day: arr[2], month: arr[1] };
+  return { year, day, month };
 };
 
 export function formatTime(minutes: number) {

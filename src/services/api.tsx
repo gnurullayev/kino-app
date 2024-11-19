@@ -1,6 +1,7 @@
 import Axios from "axios";
 
-export const BASE_URL = "http://157.230.91.245";
+// export const BASE_URL = "http://127.0.0.1:8000";
+export const BASE_URL = "https://topmovie.me";
 
 export const axiosInstance = Axios.create({
   baseURL: BASE_URL + "/api/v1/",
@@ -47,7 +48,5 @@ export const API = {
 
   //Movies
   moviesCategories: () =>
-    axiosInstance
-      .get("all-categories")
-      .then((res) => res.data?.data),
+    axiosInstance.get("all-categories").then((res) => res.data?.data),
 };

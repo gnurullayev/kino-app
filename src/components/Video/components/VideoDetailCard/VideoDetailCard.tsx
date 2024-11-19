@@ -52,9 +52,9 @@ const VideoDetailCard = ({ id, image, name, year, type }: IProps) => {
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           quality={90}
         />
-        <Typography component="span" sx={timeStile}>
+        {/* <Typography component="span" sx={timeStile}>
           02:30:15
-        </Typography>
+        </Typography> */}
       </Box>
       <Box className={style.video_detail_card__body}>
         <Typography

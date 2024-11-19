@@ -8,7 +8,7 @@ interface IProps {
   robots?: string;
   author?: string;
 }
-const TITLE = "Bestmedia - ";
+const TITLE = "TopMovie.me - ";
 
 const metaData = {
   title: "Eng Yaxshi Kinolar va Seriallar",

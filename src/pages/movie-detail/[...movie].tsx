@@ -9,7 +9,7 @@ import { Box } from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2";
 import { GetServerSideProps } from "next";
 import { useRouter } from "next/router";
-import { FC, useContext, useState } from "react";
+import { FC, useContext, useEffect, useState } from "react";
 import {
   VideoDetailLeft,
   VideoDetailCardList,
@@ -17,15 +17,16 @@ import {
   MetaData,
 } from "src/components";
 interface Props {
-  movieDetail: MoviesDetail;
-  movieKey: string;
-  id: number;
+  movieDetail: MoviesDetail | null;
+  movieKey: string | null;
+  id: number | null;
 }
 
 export interface ActiveMovie {
   title: string;
   id: number;
   quality: MovieQuality;
+  video_url: string | undefined;
 }
 
 const findMovieQuality = (
@@ -37,6 +38,7 @@ const findMovieQuality = (
       title: movieDetail.title as string,
       id: movieDetail.id as number,
       quality: movieDetail.qualities[0] as MovieQuality,
+      video_url: movieDetail.video_url,
     };
   else if (params.part) {
     const findMovie = movieDetail.serials_parts
@@ -49,20 +51,38 @@ const findMovieQuality = (
       title: findMovie?.title as string,
       id: findMovie?.id as number,
       quality: findMovie?.qualities[0] as MovieQuality,
+      video_url: findMovie?.video_url,
     };
   } else
     return {
       title: movieDetail.serials_parts[0]?.title as string,
       id: movieDetail.serials_parts[0]?.id as number,
       quality: movieDetail.serials_parts[0]?.qualities[0] as MovieQuality,
+      video_url: movieDetail.serials_parts[0].video_url,
     };
 };
 
 const Movie: FC<Props> = ({ movieDetail, movieKey }) => {
-  const { params } = useQuery();
+  // const { params } = useQuery();
+  const router = useRouter();
+  const { query }: any = router;
+  const params = {
+    type: query.movie[1],
+    id: query.movie[0],
+    part: query.part,
+  };
+
   const [playMovie, setPlayMovie] = useState<ActiveMovie>(
-    findMovieQuality(movieDetail, params)
+    movieDetail ? findMovieQuality(movieDetail, params) : ({} as ActiveMovie)
   );
+
+  useEffect(() => {
+    if (movieDetail) {
+      setPlayMovie(findMovieQuality(movieDetail, params));
+    }
+  }, [movieDetail]);
+
+  if (!movieDetail) return null;
 
   return (
     <Box className="movie" sx={{ pb: "20px" }}>
@@ -105,11 +125,18 @@ const Movie: FC<Props> = ({ movieDetail, movieKey }) => {
 export default Movie;
 
 export const getServerSideProps = (async (context: any) => {
-  const data = context;
-  const id = data.query.movie[0];
-  const type = data.query.movie[1];
+  try {
+    const data = context;
+    const id = data.query.movie[0];
+    const type = data.query.movie[1];
 
-  const movieDetail: MoviesDetail = await API.movieDetail(id, type);
+    const movieDetail: MoviesDetail = await API.movieDetail(id, type);
 
-  return { props: { movieDetail, id, movieKey: type } };
+    return { props: { movieDetail, id, movieKey: type } };
+  } catch (error) {
+    console.error("Failed to fetch movie details:", error);
+
+    // Return an error state or fallback data as needed
+    return { props: { movieDetail: null, id: null, movieKey: null } };
+  }
 }) satisfies GetServerSideProps<Props>;

@@ -42,6 +42,7 @@ export interface MoviesDetail {
   short_content: string;
   description: string;
   poster_url: string;
+  video_url: string;
   genre: string | null;
   rating: number;
   views: number;
