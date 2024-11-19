@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import Script from "next/script";
 import { useRouter } from "next/router";
 
-const GA_TRACKING_ID = "G-5HZW3JDFKM";
+const GA_TRACKING_ID = "G-BJW42KZJS4";
 
 const Analytics = () => {
   const router = useRouter();
