@@ -29,7 +29,10 @@ const MetaData: FC<IProps> = ({
 }) => {
   return (
     <Head>
-      <meta name="google-site-verification" content="ojKGPlxNbjVi1Jb7aS0QCh9njRe-yVG-dAjUQ6K2jSw" />
+      <meta
+        name="google-site-verification"
+        content="ojKGPlxNbjVi1Jb7aS0QCh9njRe-yVG-dAjUQ6K2jSw"
+      />
       <meta name="title" content={TITLE + title} />
       <meta name="description" content={description} />
       <meta name="keywords" content={keywords} />
