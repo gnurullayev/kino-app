@@ -92,6 +92,7 @@ const Movie: FC<Props> = ({ movieDetail, movieKey }) => {
             description={movieDetail.description}
             keywords={movieDetail.short_content + " " + movieDetail.genre}
             title={movieDetail.title}
+            image={movieDetail.poster_url}
           />
 
           <BreadcrumbsComponent label={movieDetail.title} />
