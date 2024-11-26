@@ -28,7 +28,7 @@ const MetaData: FC<IProps> = ({
   keywords = metaData.keywords,
   robots = metaData.robots,
   author = metaData.author,
-  image = "/android-chrome-192x192.png",
+  image = "/public/android-chrome-192x192.png",
 }) => {
   return (
     <Head>

@@ -48,7 +48,7 @@ const VideoBottom: FC<Props> = ({ movie, playMovie, setPlayMovie }) => {
       <Typography variant="h4" component="h4">
         {playMovie.title}
       </Typography>
-      <MetaData title={playMovie.title} />
+      <MetaData title={playMovie.title} image={movie.poster_url} />
       {/* <VideoBottomButtons /> */}
       <Box
         className="movie__video_btn--group"
