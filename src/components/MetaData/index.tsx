@@ -7,13 +7,15 @@ interface IProps {
   keywords?: string;
   robots?: string;
   author?: string;
+  image?: string;
 }
 const TITLE = "TopMovie.me - ";
 
 const metaData = {
   title: "Eng Yaxshi Kinolar va Seriallar",
   description:
-    "Bestmedia sayti orqali eng yangi, mashhur va yuqori sifatdagi kinolarni bepul ko'ring. Yangi filmlar, seriallar va eski klassikalarni HD formatida tomosha qilish imkoniyati!",
+    TITLE +
+    " sayti orqali eng yangi, mashhur va yuqori sifatdagi kinolarni bepul ko'ring. Yangi filmlar, seriallar va eski klassikalarni HD formatida tomosha qilish imkoniyati!",
   keywords:
     "kinolar, yangi kinolar, mashhur filmlar, HD filmlar, eng yaxshi seriallar, online kino, yuqori sifatli kino",
   robots: "index, follow",
@@ -26,6 +28,7 @@ const MetaData: FC<IProps> = ({
   keywords = metaData.keywords,
   robots = metaData.robots,
   author = metaData.author,
+  image = "/android-chrome-192x192.png",
 }) => {
   return (
     <Head>
@@ -41,20 +44,14 @@ const MetaData: FC<IProps> = ({
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
-      <meta
-        property="og:image"
-        content="https://bestmedia.com/bestmedia.webp"
-      />
+      <meta property="og:image" content={image} />
       <meta property="og:url" content="https://bestmedia.com" />
       <meta property="og:type" content="website" />
       <meta property="og:locale" content="uz_UZ" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
-      <meta
-        name="twitter:image"
-        content="https://bestmedia.com/bestmedia.webp"
-      />
+      <meta name="twitter:image" content={image} />
       <meta name="twitter:site" content="@Bestmedia" />
       <title>{TITLE + title}</title>
     </Head>
