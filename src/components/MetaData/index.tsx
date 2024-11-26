@@ -30,6 +30,7 @@ const MetaData: FC<IProps> = ({
   author = metaData.author,
   image = "/public/android-chrome-192x192.png",
 }) => {
+  const imagePath = image.replace("http", "https");
   return (
     <Head>
       <meta
@@ -44,14 +45,14 @@ const MetaData: FC<IProps> = ({
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
-      <meta property="og:image" content={image} />
+      <meta property="og:image" content={imagePath} />
       <meta property="og:url" content="https://bestmedia.com" />
       <meta property="og:type" content="website" />
       <meta property="og:locale" content="uz_UZ" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
-      <meta name="twitter:image" content={image} />
+      <meta name="twitter:image" content={imagePath} />
       <meta name="twitter:site" content="@Bestmedia" />
       <title>{TITLE + title}</title>
     </Head>
