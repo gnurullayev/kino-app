@@ -11,7 +11,7 @@ import {
 import { route } from "@/utils";
 import Routes from "@/enums/routes";
 
-const HomeSliderCard = ({ image, name, id, type }: IHomeSliderCard) => {
+const HomeSliderCard = ({ image, name, id, type, slug }: IHomeSliderCard) => {
   const router = useRouter();
   const { changeTitle } = useContext<ValueType>(TitleContext);
   const handleClick = (data: ITitleContextData): void => {
@@ -23,8 +23,8 @@ const HomeSliderCard = ({ image, name, id, type }: IHomeSliderCard) => {
       sx={{ maxWidth: "100%", cursor: "pointer" }}
       className="home-slider-card"
       onClick={() => {
-        router.push(route(Routes.MOVIE, { id, key: type }));
-        handleClick({ title: name, url: id });
+        router.push(route(Routes.MOVIE, { id: slug, key: type }));
+        handleClick({ title: name, url: slug as string });
       }}
     >
       <Box sx={{ position: "relative", minHeight: "200px" }}>

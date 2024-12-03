@@ -23,7 +23,7 @@ const Home: FC<Props> = ({ data }) => {
             subtitle={""}
             list={category.list}
             url={route(Routes.MOVIES, {
-              id: category.id,
+              id: category.slug,
               key: Movie.SERIES,
             })}
           />
@@ -37,7 +37,7 @@ const Home: FC<Props> = ({ data }) => {
             subtitle={""}
             list={category.movies}
             url={route(Routes.MOVIES, {
-              id: category.id,
+              id: category.slug,
               key: Movie.MOVIE,
             })}
           />

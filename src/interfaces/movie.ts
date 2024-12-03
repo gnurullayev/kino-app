@@ -19,6 +19,7 @@ export interface IMovie {
   video_url: string;
   genre: string;
   is_active: boolean;
+  slug: string;
 }
 
 export interface IMoviesByCategory {
@@ -55,6 +56,7 @@ export interface MoviesDetail {
   qualities: MovieQuality[] | [];
   other_movies: IMovie[];
   serials_parts: ISeriesPart[] | [];
+  slug: string;
 }
 
 export interface ISearchMovies {

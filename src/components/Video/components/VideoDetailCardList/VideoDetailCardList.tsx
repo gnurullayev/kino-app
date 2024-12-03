@@ -17,6 +17,7 @@ const VideoDetailCardList: FC<Props> = ({ movies }) => {
             name={el.title}
             image={el.poster_url}
             id={el.id}
+            slug={el.slug}
             year={new Date(el.release_date).getFullYear()}
             type={el.type ? el.type : MovieType.SERIES}
           />

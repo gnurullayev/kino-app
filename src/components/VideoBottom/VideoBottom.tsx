@@ -33,13 +33,14 @@ const VideoBottom: FC<Props> = ({ movie, playMovie, setPlayMovie }) => {
       (item) => item.id === Number(value)
     );
 
-    updateQuery({ part: value });
+    updateQuery({ part: findMovie?.slug });
 
     setPlayMovie({
       id: findMovie?.id as number,
       title: findMovie?.title as string,
       quality: findMovie?.qualities[0] as MovieQuality,
       video_url: findMovie?.video_url,
+      slug: findMovie?.slug as string,
     });
   };
 

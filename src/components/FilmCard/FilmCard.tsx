@@ -11,9 +11,10 @@ interface Props {
   short_content: string;
   poster_url: string;
   type?: string;
+  slug: string;
 }
 
-const FilmCard: FC<Props> = ({ poster_url, title, id, type }) => {
+const FilmCard: FC<Props> = ({ poster_url, title, id, type, slug }) => {
   const router = useRouter();
   const key = type ? type : "series";
 
@@ -21,7 +22,7 @@ const FilmCard: FC<Props> = ({ poster_url, title, id, type }) => {
     <Card
       sx={{ maxWidth: "100%" }}
       className="film-card"
-      onClick={() => router.push(route(Routes.MOVIE, { id, key }))}
+      onClick={() => router.push(route(Routes.MOVIE, { id: slug, key }))}
     >
       <Box sx={{ position: "relative", minHeight: "200px" }}>
         <Image

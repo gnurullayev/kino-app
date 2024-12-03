@@ -11,6 +11,7 @@ export interface ISeries {
   total_movies: number;
   short_content: string;
   views: string;
+  slug: string;
 }
 
 export interface ISeriesPart {
@@ -20,4 +21,5 @@ export interface ISeriesPart {
   title: string;
   qualities: MovieQuality[];
   video_url: string;
+  slug: string;
 }

@@ -26,19 +26,22 @@ const CategorySection: FC<ICategorySection> = ({
           <Box sx={{ flexGrow: 1 }}>
             <Grid container spacing={3} justifyContent={"start"}>
               {list.length > 0 &&
-                list.map(({ id, poster_url, short_content, title, type }) => (
-                  <Grid key={id} xs={12} sm={4} md={3}>
-                    <Box sx={{ maxWidth: "350px", margin: "0 auto" }}>
-                      <FilmCard
-                        id={id}
-                        poster_url={poster_url}
-                        title={title}
-                        type={type}
-                        short_content={short_content}
-                      />
-                    </Box>
-                  </Grid>
-                ))}
+                list.map(
+                  ({ id, poster_url, short_content, title, type, slug }) => (
+                    <Grid key={id} xs={12} sm={4} md={3}>
+                      <Box sx={{ maxWidth: "350px", margin: "0 auto" }}>
+                        <FilmCard
+                          id={id}
+                          poster_url={poster_url}
+                          title={title}
+                          type={type}
+                          short_content={short_content}
+                          slug={slug}
+                        />
+                      </Box>
+                    </Grid>
+                  )
+                )}
             </Grid>
           </Box>
         </Box>

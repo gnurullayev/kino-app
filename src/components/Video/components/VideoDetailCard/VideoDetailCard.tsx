@@ -16,6 +16,7 @@ interface IProps {
   year: string | number;
   image: string | StaticImageData;
   type: string;
+  slug: string;
 }
 
 const timeStile = {
@@ -28,7 +29,7 @@ const timeStile = {
   fontSize: "12px",
 };
 
-const VideoDetailCard = ({ id, image, name, year, type }: IProps) => {
+const VideoDetailCard = ({ id, image, name, year, type, slug }: IProps) => {
   const router = useRouter();
   const { changeTitle } = useContext<ValueType>(TitleContext);
   const handleClick = (data: ITitleContextData): void => {
@@ -38,8 +39,8 @@ const VideoDetailCard = ({ id, image, name, year, type }: IProps) => {
     <Box
       className={style.video_detail_card}
       onClick={() => {
-        router.push(route(Routes.MOVIE, { id, key: type }));
-        handleClick({ title: name, url: id });
+        router.push(route(Routes.MOVIE, { id: slug, key: type }));
+        handleClick({ title: name, url: slug });
       }}
     >
       <Box className={style.video_detail_card__img}>

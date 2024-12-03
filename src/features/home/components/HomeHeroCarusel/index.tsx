@@ -56,6 +56,7 @@ const HomeHeroCarousel: FC<Props> = ({ data }) => {
               name={item.title}
               image={item.poster_url}
               id={item.id}
+              slug={item.slug}
               type={item.type}
             />
           </SwiperSlide>

@@ -25,7 +25,7 @@ const MoviesList: FC<Props> = ({ data }) => {
             <FilmCard
               {...item}
               type={item.type}
-              id={item.type !== MovieType.MOVIE ? item.series_id : item.id}
+              slug={item.type !== MovieType.MOVIE ? item.slug : item.slug}
             />
           </Box>
         </Grid>

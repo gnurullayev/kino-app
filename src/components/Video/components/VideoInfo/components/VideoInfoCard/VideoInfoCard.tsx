@@ -22,7 +22,7 @@ const VideoInfoCard: FC<Props> = ({ movie }) => {
           width={180}
           height={250}
           style={{ objectFit: "cover", objectPosition: "center" }}
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 100vw"
           quality={90}
         />
       </Box>

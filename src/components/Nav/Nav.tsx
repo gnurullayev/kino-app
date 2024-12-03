@@ -70,7 +70,7 @@ const Nav: FC<Props> = ({ data }) => {
                     sx={{ cursor: "pointer" }}
                     onClick={() =>
                       router.push(
-                        route(Routes.MOVIES, { id: item.value, key: item.type })
+                        route(Routes.MOVIES, { id: item.slug, key: item.type })
                       )
                     }
                   >

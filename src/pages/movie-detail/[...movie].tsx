@@ -27,6 +27,7 @@ export interface ActiveMovie {
   id: number;
   quality: MovieQuality;
   video_url: string | undefined;
+  slug: string;
 }
 
 const findMovieQuality = (
@@ -39,11 +40,12 @@ const findMovieQuality = (
       id: movieDetail.id as number,
       quality: movieDetail.qualities[0] as MovieQuality,
       video_url: movieDetail.video_url,
+      slug: movieDetail.slug,
     };
   else if (params.part) {
     const findMovie = movieDetail.serials_parts
       ? movieDetail.serials_parts.find(
-          (item) => item.id === Number(params.part)
+          (item) => item.slug === String(params.part)
         )
       : movieDetail.serials_parts[0];
 
@@ -52,13 +54,15 @@ const findMovieQuality = (
       id: findMovie?.id as number,
       quality: findMovie?.qualities[0] as MovieQuality,
       video_url: findMovie?.video_url,
+      slug: findMovie?.slug as string,
     };
   } else
     return {
       title: movieDetail.serials_parts[0]?.title as string,
       id: movieDetail.serials_parts[0]?.id as number,
       quality: movieDetail.serials_parts[0]?.qualities[0] as MovieQuality,
-      video_url: movieDetail.serials_parts[0].video_url,
+      video_url: movieDetail.serials_parts[0]?.video_url,
+      slug: movieDetail.serials_parts[0]?.slug as string,
     };
 };
 
@@ -126,11 +130,11 @@ const Movie: FC<Props> = ({ movieDetail, movieKey }) => {
 export default Movie;
 
 export const getServerSideProps = (async (context: any) => {
-  try {
-    const data = context;
-    const id = data.query.movie[0];
-    const type = data.query.movie[1];
+  const data = context;
+  const id = data.query.movie[0];
+  const type = data.query.movie[1];
 
+  try {
     const movieDetail: MoviesDetail = await API.movieDetail(id, type);
 
     return { props: { movieDetail, id, movieKey: type } };
