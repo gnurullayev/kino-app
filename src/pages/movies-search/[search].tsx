@@ -46,12 +46,20 @@ const MoviesSearch: FC<Props> = ({ searchMovies, search }) => {
     updateQuery({ page });
   };
 
+  console.log("moviesList", moviesList);
+
   return (
     <Box className="movies" component="main">
       <Box component="section" className="movies_hero">
         <Box className="movies_hero__container container">
           <Box className="movies_hero__inner">
-            <MetaData title={search} />
+            <MetaData
+              title={
+                search +
+                " " +
+                "Eng so'ngi kino va seriallar topmovie.me saytida"
+              }
+            />
             <MoviesHead title={search} />
             <MovieSearch searchValue={search ? search : ""} mutate={mutate} />
             <MoviesList data={moviesList} />

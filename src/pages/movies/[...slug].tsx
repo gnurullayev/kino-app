@@ -9,19 +9,23 @@ import {
 import { API } from "@/services/api";
 import { IMoviesByCategory } from "@/interfaces/movie";
 import { useMutation } from "@tanstack/react-query";
+import { useQuery } from "@/hooks/use-query";
+import { useRouter } from "next/router";
 
 interface Props {
   moviesByCategory: IMoviesByCategory;
   id: number;
   movieKey: string;
+  activePage: number;
 }
 
-const Movies: FC<Props> = ({ moviesByCategory, id, movieKey }) => {
+const Movies: FC<Props> = ({ moviesByCategory, id, movieKey, activePage }) => {
+  const router = useRouter();
   const [moviesList, setMoviesList] = useState(
     moviesByCategory.movies_data.data
   );
   const [paginate, setPaginate] = useState({
-    currentPage: moviesByCategory.movies_data.current_page,
+    currentPage: moviesByCategory.movies_data.current_page ?? activePage,
     total: moviesByCategory.movies_data.total,
   });
 
@@ -48,12 +52,16 @@ const Movies: FC<Props> = ({ moviesByCategory, id, movieKey }) => {
       setPaginate({
         currentPage: moviesByCategory.movies_data.current_page,
         total: moviesByCategory.movies_data.total,
-        });
+      });
     }
   }, [moviesByCategory.movies_data]);
 
-  const changePaginate = (page: any) => {
-    mutate({ page });
+  const changePaginate = (newPage: any) => {
+    mutate({ newPage });
+    router.push({
+      pathname: `/movies/${id}/${movieKey}`,
+      query: { page: newPage },
+    });
   };
 
   return (
@@ -87,16 +95,24 @@ export const getServerSideProps = async (context: any) => {
     const data = context;
     const id = data.query.slug[0];
     const key = data.query.slug[1];
+    const page = data.query.page ?? 1;
 
     const moviesByCategory: IMoviesByCategory = await API.moviesByCategory(id, {
       key,
+      page,
     });
 
-    return { props: { moviesByCategory, id, movieKey: key } };
+    return { props: { moviesByCategory, id, movieKey: key, activePage: page } };
   } catch (error) {
     console.error("Failed to fetch movies by category:", error);
 
     // Return an empty or error state as needed
-    return { props: { moviesByCategory: null, id: null, movieKey: null } };
+    return {
+      props: {
+        moviesByCategory: null,
+        id: null,
+        movieKey: null,
+      },
+    };
   }
 };
