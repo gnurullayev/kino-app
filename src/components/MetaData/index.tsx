@@ -9,7 +9,7 @@ interface IProps {
   author?: string;
   image?: string;
 }
-const TITLE = "TopMovie.me - ";
+const TITLE = "Topmovie - ";
 
 const metaData = {
   title: "Eng Yaxshi Kinolar va Seriallar",
