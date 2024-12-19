@@ -5,11 +5,6 @@ export default function Document() {
     <Html lang="en">
       <Head />
       <body>
-        <amp-auto-ads
-          type="adsense"
-          data-ad-client="ca-pub-6341050522698824"
-        ></amp-auto-ads>
-
         <Main />
         <NextScript />
       </body>

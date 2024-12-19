@@ -13,6 +13,9 @@ import { useRouter } from "next/router";
 import "../styles/globals.scss";
 import "../styles/swiper.scss";
 import { Analytics } from "@/features/app";
+import Head from "next/head";
+import AdSense from "@/features/app/AdSense";
+import AdBanner from "@/features/app/AdBanner";
 
 //Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache();
@@ -20,6 +23,8 @@ const clientSideEmotionCache = createEmotionCache();
 export interface MyAppProps extends AppProps {
   emotionCache?: EmotionCache;
 }
+
+export const config = { amp: true };
 
 export default function App(props: MyAppProps) {
   const { Component, pageProps, emotionCache = clientSideEmotionCache } = props;
@@ -44,6 +49,9 @@ export default function App(props: MyAppProps) {
 
   return (
     <>
+      <Head>
+        <AdSense pId="ca-pub-6341050522698824" />
+      </Head>
       {loading && (
         <div className="spinner">
           <LinearProgress color="success" />
@@ -62,6 +70,12 @@ export default function App(props: MyAppProps) {
           </ThemeProvider>
         </CacheProvider>
       </TitleContextProvider>
+
+      {/* <AdBanner
+        dataAdFormat="auto"
+        dataFullWidthResponsive={true}
+        dataAdSlot="6135369832"
+      /> */}
     </>
   );
 }
