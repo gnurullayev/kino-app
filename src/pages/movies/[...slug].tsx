@@ -29,21 +29,22 @@ const Movies: FC<Props> = ({ moviesByCategory, id, movieKey, activePage }) => {
     total: moviesByCategory.movies_data.total,
   });
 
-  const { mutate, isPending } = useMutation({
-    mutationFn: async (data: any) =>
-      await API.moviesByCategory(id, {
-        key: movieKey,
-        page: data.page,
-      }),
-    onSuccess: (res: IMoviesByCategory) => {
-      setMoviesList(res.movies_data.data);
+  // console.log(moviesByCategory, id, movieKey, activePage);
 
-      setPaginate({
-        total: res.movies_data.total,
-        currentPage: res.movies_data.current_page,
-      });
-    },
-  });
+  // const { mutate, isPending } = useMutation({
+  //   mutationFn: async (data: any) =>
+  //     await API.moviesByCategory(id, {
+  //       key: movieKey,
+  //       page: data.page,
+  //     }),
+  //   onSuccess: (res: IMoviesByCategory) => {
+  //     // setMoviesList(res.movies_data.data);
+  //     // setPaginate({
+  //     //   total: res.movies_data.total,
+  //     //   currentPage: res.movies_data.current_page,
+  //     // });
+  //   },
+  // });
 
   useEffect(() => {
     if (moviesByCategory.movies_data) {
@@ -57,7 +58,7 @@ const Movies: FC<Props> = ({ moviesByCategory, id, movieKey, activePage }) => {
   }, [moviesByCategory.movies_data]);
 
   const changePaginate = (newPage: any) => {
-    mutate({ newPage });
+    // mutate({ newPage });
     router.push({
       pathname: `/movies/${id}/${movieKey}`,
       query: { page: newPage },
