@@ -13,8 +13,10 @@ interface Props {
 const Home: FC<Props> = ({ data }) => {
   return (
     <>
+      <h1 style={{ height: 0, overflow: "hidden", visibility: "hidden" }}>
+        {"tarjima komediya kinolar ro'yxati"} {new Date().getFullYear()}
+      </h1>
       <HomeHero data={data.top_movies} />
-
       {data.series.length > 0 &&
         data.series.map((category) => (
           <CategorySection

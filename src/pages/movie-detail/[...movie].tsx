@@ -1,7 +1,5 @@
-import { INavData } from "@/components/Nav/nav.props";
-import { TitleContext, ValueType } from "@/context/TitleContext/TitleContext";
+import PageSchema from "@/components/PageSchema";
 import MovieType from "@/enums/movie";
-import { useQuery } from "@/hooks/use-query";
 import { MoviesDetail } from "@/interfaces/movie";
 import { MovieQuality } from "@/interfaces/quality";
 import { API } from "@/services/api";
@@ -9,7 +7,7 @@ import { Box } from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2";
 import { GetServerSideProps } from "next";
 import { useRouter } from "next/router";
-import { FC, useContext, useEffect, useState } from "react";
+import { FC, useEffect, useMemo, useState } from "react";
 import {
   VideoDetailLeft,
   VideoDetailCardList,
@@ -67,14 +65,15 @@ const findMovieQuality = (
 };
 
 const Movie: FC<Props> = ({ movieDetail, movieKey }) => {
-  // const { params } = useQuery();
   const router = useRouter();
   const { query }: any = router;
-  const params = {
-    type: query.movie[1],
-    id: query.movie[0],
-    part: query.part,
-  };
+  const params = useMemo(() => {
+    return {
+      type: query.movie[1],
+      id: query.movie[0],
+      part: query.part,
+    };
+  }, [query]);
 
   const [playMovie, setPlayMovie] = useState<ActiveMovie>(
     movieDetail ? findMovieQuality(movieDetail, params) : ({} as ActiveMovie)
@@ -84,46 +83,58 @@ const Movie: FC<Props> = ({ movieDetail, movieKey }) => {
     if (movieDetail) {
       setPlayMovie(findMovieQuality(movieDetail, params));
     }
-  }, [movieDetail]);
+  }, [movieDetail, params]);
 
   if (!movieDetail) return null;
 
   return (
-    <Box className="movie" sx={{ pb: "20px" }}>
-      <Box className="container">
-        <Box className="movie-inner">
-          <MetaData
-            description={movieDetail.description}
-            keywords={movieDetail.short_content + " " + movieDetail.genre}
-            title={movieDetail.title}
-            image={movieDetail.poster_url}
-          />
+    <>
+      <Box className="movie" sx={{ pb: "20px" }}>
+        <Box className="container">
+          <Box className="movie-inner">
+            <MetaData
+              description={movieDetail.description}
+              keywords={movieDetail.short_content + " " + movieDetail.genre}
+              title={movieDetail.title}
+              image={movieDetail.poster_url}
+            />
 
-          <BreadcrumbsComponent label={movieDetail.title} />
+            <BreadcrumbsComponent label={movieDetail.title} />
 
-          <Grid
-            container
-            spacing={3}
-            justifyContent={"space-between"}
-            sx={{ pt: "20px" }}
-          >
-            <Grid xs={12} lg={8}>
-              <VideoDetailLeft
-                movie={movieDetail}
-                playMovie={playMovie}
-                setPlayMovie={setPlayMovie}
-              />
+            <Grid
+              container
+              spacing={3}
+              justifyContent={"space-between"}
+              sx={{ pt: "20px" }}
+            >
+              <Grid xs={12} lg={8}>
+                <VideoDetailLeft
+                  movie={movieDetail}
+                  playMovie={playMovie}
+                  setPlayMovie={setPlayMovie}
+                />
+              </Grid>
+
+              <Grid xs={12} lg={4}>
+                <Box className="movie-inner__end">
+                  <VideoDetailCardList movies={movieDetail.other_movies} />
+                </Box>
+              </Grid>
             </Grid>
-
-            <Grid xs={12} lg={4}>
-              <Box className="movie-inner__end">
-                <VideoDetailCardList movies={movieDetail.other_movies} />
-              </Box>
-            </Grid>
-          </Grid>
+          </Box>
         </Box>
       </Box>
-    </Box>
+
+      <PageSchema
+        name={movieDetail.title}
+        description={movieDetail.description}
+        genre={movieDetail.genre as string}
+        url={movieDetail.link}
+        image={movieDetail.poster_url}
+        datePublished={movieDetail.release_date}
+        type={"Kino batafsil malumotlari " + movieDetail.short_content}
+      />
+    </>
   );
 };
 

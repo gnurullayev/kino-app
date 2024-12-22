@@ -8,9 +8,8 @@ import {
 } from "@/components";
 import { API } from "@/services/api";
 import { IMoviesByCategory } from "@/interfaces/movie";
-import { useMutation } from "@tanstack/react-query";
-import { useQuery } from "@/hooks/use-query";
 import { useRouter } from "next/router";
+import PageSchema from "@/components/PageSchema";
 
 interface Props {
   moviesByCategory: IMoviesByCategory;
@@ -29,23 +28,6 @@ const Movies: FC<Props> = ({ moviesByCategory, id, movieKey, activePage }) => {
     total: moviesByCategory.movies_data.total,
   });
 
-  // console.log(moviesByCategory, id, movieKey, activePage);
-
-  // const { mutate, isPending } = useMutation({
-  //   mutationFn: async (data: any) =>
-  //     await API.moviesByCategory(id, {
-  //       key: movieKey,
-  //       page: data.page,
-  //     }),
-  //   onSuccess: (res: IMoviesByCategory) => {
-  //     // setMoviesList(res.movies_data.data);
-  //     // setPaginate({
-  //     //   total: res.movies_data.total,
-  //     //   currentPage: res.movies_data.current_page,
-  //     // });
-  //   },
-  // });
-
   useEffect(() => {
     if (moviesByCategory.movies_data) {
       setMoviesList(moviesByCategory.movies_data.data);
@@ -58,7 +40,6 @@ const Movies: FC<Props> = ({ moviesByCategory, id, movieKey, activePage }) => {
   }, [moviesByCategory.movies_data]);
 
   const changePaginate = (newPage: any) => {
-    // mutate({ newPage });
     router.push({
       pathname: `/movies/${id}/${movieKey}`,
       query: { page: newPage },
@@ -66,26 +47,34 @@ const Movies: FC<Props> = ({ moviesByCategory, id, movieKey, activePage }) => {
   };
 
   return (
-    <Box className="movies" component="main">
-      <Box component="section" className="movies_hero">
-        <Box className="movies_hero__container container">
-          <Box className="movies_hero__inner">
-            <MetaData
-              description={moviesByCategory.description}
-              keywords={moviesByCategory.short_content}
-              title={moviesByCategory.name}
-            />
-            <MoviesHead title={moviesByCategory.name} />
-            <MoviesList data={moviesList} />
-            <PaginationComponent
-              total={paginate.total}
-              activePage={paginate.currentPage}
-              changePaginate={changePaginate}
-            />
+    <>
+      <Box className="movies" component="main">
+        <Box component="section" className="movies_hero">
+          <Box className="movies_hero__container container">
+            <Box className="movies_hero__inner">
+              <MetaData
+                description={moviesByCategory.description}
+                keywords={moviesByCategory.short_content}
+                title={moviesByCategory.name}
+              />
+              <MoviesHead title={moviesByCategory.name} />
+              <MoviesList data={moviesList} />
+              <PaginationComponent
+                total={paginate.total}
+                activePage={paginate.currentPage}
+                changePaginate={changePaginate}
+              />
+            </Box>
           </Box>
         </Box>
       </Box>
-    </Box>
+
+      <PageSchema
+        name={moviesByCategory.name}
+        description={moviesByCategory.description}
+        url={`https://topmovie.me/movies/${id}/${movieKey}`}
+      />
+    </>
   );
 };
 

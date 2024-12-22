@@ -1,0 +1,9 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /user/
+Allow: /
+
+Sitemap: https://topmovie.me/sitemap.xml
+
+# Google Site Verification
+google-site-verification: ojKGPlxNbjVi1Jb7aS0QCh9njRe-yVG-dAjUQ6K2jSw

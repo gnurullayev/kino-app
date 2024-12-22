@@ -11,6 +11,7 @@ import { IMoviesByCategory, ISearchMovies } from "@/interfaces/movie";
 import { useMutation } from "@tanstack/react-query";
 import { MovieSearch } from "@/features/movies-search";
 import { useQuery } from "@/hooks/use-query";
+import PageSchema from "@/components/PageSchema";
 
 interface Props {
   searchMovies: ISearchMovies;
@@ -46,32 +47,33 @@ const MoviesSearch: FC<Props> = ({ searchMovies, search }) => {
     updateQuery({ page });
   };
 
-  console.log("moviesList", moviesList);
-
   return (
-    <Box className="movies" component="main">
-      <Box component="section" className="movies_hero">
-        <Box className="movies_hero__container container">
-          <Box className="movies_hero__inner">
-            <MetaData
-              title={
-                search +
-                " " +
-                "Eng so'ngi kino va seriallar topmovie.me saytida"
-              }
-            />
-            <MoviesHead title={search} />
-            <MovieSearch searchValue={search ? search : ""} mutate={mutate} />
-            <MoviesList data={moviesList} />
-            <PaginationComponent
-              total={paginate.total}
-              activePage={paginate.currentPage}
-              changePaginate={changePaginate}
-            />
+    <>
+      <Box className="movies" component="main">
+        <Box component="section" className="movies_hero">
+          <Box className="movies_hero__container container">
+            <Box className="movies_hero__inner">
+              <MetaData
+                title={
+                  search +
+                  " " +
+                  "Eng so'ngi kino va seriallar topmovie.me saytida"
+                }
+              />
+              <MoviesHead title={search} />
+              <MovieSearch searchValue={search ? search : ""} mutate={mutate} />
+              <MoviesList data={moviesList} />
+              <PaginationComponent
+                total={paginate.total}
+                activePage={paginate.currentPage}
+                changePaginate={changePaginate}
+              />
+            </Box>
           </Box>
         </Box>
       </Box>
-    </Box>
+      <PageSchema name="Topmovie saytida eng yangi va qiziqarli kino va seriallarni qidirish" />
+    </>
   );
 };
 

@@ -10,16 +10,16 @@ interface IProps {
   image?: string;
 }
 const TITLE = "Topmovie - ";
+const year = new Date().getFullYear();
 
 const metaData = {
-  title: "Eng Yaxshi Kinolar va Seriallar",
+  title: `Eng yangi Tarjima kinolar ${year} Uzbek Tilida va eng yaxshi kinolar va seriallar`,
   description:
     TITLE +
-    " sayti orqali eng yangi, mashhur va yuqori sifatdagi kinolarni bepul ko'ring. Yangi filmlar, seriallar va eski klassikalarni HD formatida tomosha qilish imkoniyati!",
-  keywords:
-    "kinolar, yangi kinolar, mashhur filmlar, HD filmlar, eng yaxshi seriallar, online kino, yuqori sifatli kino",
+    `${year} yilning eng yangi uzbek kinolari ro'yxati. Eng yaxshi komediya, jangari va fantastik kinolarni kashf eting. Yangi filmlar, seriallar va eski klassikalarni HD formatida tomosha qilish imkoniyati!`,
+  keywords: `${year} - yildagi kinolar, ${year}-tarjima kinolar, ramantik kinolar, hind kinolar, ${year}-hind kinolar, tarjima kinolar, yangi kinolar, eng sara filimlar, kinolar, yangi kinolar, mashhur filmlar, HD filmlar, eng yaxshi seriallar`,
   robots: "index, follow",
-  author: "Bestmedia Team",
+  author: "Topmovie",
 };
 
 const MetaData: FC<IProps> = ({

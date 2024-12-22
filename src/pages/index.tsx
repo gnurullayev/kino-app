@@ -4,6 +4,7 @@ import { API } from "../services/api";
 import { IHome } from "@/interfaces/home";
 import Home from "@/features/home";
 import { MetaData } from "@/components";
+import PageSchema from "@/components/PageSchema";
 
 export default function HomePage({
   home,
@@ -14,6 +15,7 @@ export default function HomePage({
     <Box className="home" sx={{ p: "0px 0" }}>
       <MetaData />
       <Home data={home} />
+      <PageSchema />
     </Box>
   );
 }

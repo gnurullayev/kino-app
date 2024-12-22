@@ -47,6 +47,10 @@ body {
   color: #057970;
 }
 
+.snowflake {
+  z-index: 1000;
+}
+
 .MuiDrawer-paperAnchorLeft {
   padding: 10px 40px;
   background-color: #0f0f0f !important;

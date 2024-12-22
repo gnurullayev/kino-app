@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "generate-sitemap": "node scripts/generate-sitemap.mjs"
   },
   "dependencies": {
     "@emotion/react": "^11.10.8",
@@ -21,7 +22,9 @@
     "deep-equal": "^2.2.3",
     "eslint": "8.39.0",
     "eslint-config-next": "13.3.1",
-    "next": "13.3.1",
+    "fs": "^0.0.1-security",
+    "jquery": "^3.7.1",
+    "next": "^13.5.8",
     "next-app": "file:",
     "next-cloudinary": "^4.10.0",
     "react": "18.2.0",
@@ -34,6 +37,8 @@
   },
   "devDependencies": {
     "@types/axios": "^0.14.0",
-    "@types/deep-equal": "^1.0.4"
+    "@types/deep-equal": "^1.0.4",
+    "@types/jquery": "^3.5.32",
+    "ts-node": "^10.9.2"
   }
 }

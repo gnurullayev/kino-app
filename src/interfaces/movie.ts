@@ -57,6 +57,7 @@ export interface MoviesDetail {
   other_movies: IMovie[];
   serials_parts: ISeriesPart[] | [];
   slug: string;
+  link: string;
 }
 
 export interface ISearchMovies {

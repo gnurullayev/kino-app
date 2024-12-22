@@ -7,14 +7,10 @@ import { Swiper, SwiperSlide } from "swiper/react";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
-import { INavData } from "./nav.props";
-import { useQuery } from "@tanstack/react-query";
-import { API } from "@/services/api";
 import { ISelectData } from "@/interfaces";
 import { route } from "@/utils";
 import { useRouter } from "next/router";
 import Routes from "@/enums/routes";
-import MovieType from "@/enums/movie";
 
 interface Props {
   data: ISelectData[];
@@ -22,10 +18,6 @@ interface Props {
 
 const Nav: FC<Props> = ({ data }) => {
   const router = useRouter();
-  // const { data } = useQuery({
-  //   queryKey: ["all-categories"],
-  //   queryFn: async () => await API.moviesCategories(),
-  // });
 
   return (
     <Box className="nav" sx={{ p: "15px 0" }}>
