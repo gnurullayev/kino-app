@@ -70,7 +70,7 @@ export default function App(props: MyAppProps) {
       )}
       <Analytics />
 
-      {isSnowMonth && <SnowEffect />}
+      {/* {isSnowMonth && <SnowEffect />} */}
 
       <TitleContextProvider>
         <CacheProvider value={emotionCache}>
