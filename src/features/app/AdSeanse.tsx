@@ -44,11 +44,28 @@ const AdBanner = ({
         });
       }
     };
+
+    const yandexScript2 = document.createElement("script");
+    yandexScript2.src = "https://yandex.ru/ads/system/context.js";
+    yandexScript2.async = true;
+    yandexScript2.onload = () => {
+      if (window.yaContextCb) {
+        window.yaContextCb.push(() => {
+          window.Ya.Context.AdvManager.render({
+            blockId: "R-A-13558384-2",
+            renderTo: "yandex_rtb_R-A-13558384-2",
+            type: "feed",
+          });
+        });
+      }
+    };
     document.body.appendChild(yandexScript);
+    document.body.appendChild(yandexScript2);
 
     return () => {
       // Cleanup Yandex script if necessary
       document.body.removeChild(yandexScript);
+      document.body.removeChild(yandexScript2);
     };
   }, []);
 
@@ -70,6 +87,7 @@ const AdBanner = ({
 
       {/* Yandex Ads */}
       <div id="yandex_rtb_R-A-13558384-1"></div>
+      <div id="yandex_rtb_R-A-13558384-2"></div>
     </>
   );
 };
