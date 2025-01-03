@@ -6,5 +6,6 @@ declare global {
     gtag: (...args: any[]) => void;
     jQuery: any;
     $: any;
+    yaContextCb:any
   }
 }
